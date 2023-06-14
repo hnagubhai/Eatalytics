@@ -14,6 +14,7 @@
 		2FE4E2812A3A5F1400BA35CE /* EatalyticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E2802A3A5F1400BA35CE /* EatalyticsTests.swift */; };
 		2FE4E28B2A3A5F1400BA35CE /* EatalyticsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E28A2A3A5F1400BA35CE /* EatalyticsUITests.swift */; };
 		2FE4E28D2A3A5F1400BA35CE /* EatalyticsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E28C2A3A5F1400BA35CE /* EatalyticsUITestsLaunchTests.swift */; };
+		465A6AE92A3A66640055D8D8 /* Sign up ScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465A6AE82A3A66640055D8D8 /* Sign up ScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		2FE4E2862A3A5F1400BA35CE /* EatalyticsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EatalyticsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FE4E28A2A3A5F1400BA35CE /* EatalyticsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatalyticsUITests.swift; sourceTree = "<group>"; };
 		2FE4E28C2A3A5F1400BA35CE /* EatalyticsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatalyticsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		465A6AE82A3A66640055D8D8 /* Sign up ScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sign up ScreenViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				2FE4E26F2A3A5F1200BA35CE /* EatalyticsApp.swift */,
 				2FE4E2712A3A5F1200BA35CE /* ContentView.swift */,
+				465A6AE82A3A66640055D8D8 /* Sign up ScreenViewController.swift */,
 				2FE4E2732A3A5F1400BA35CE /* Assets.xcassets */,
 				2FE4E2752A3A5F1400BA35CE /* Preview Content */,
 			);
@@ -259,6 +262,7 @@
 			files = (
 				2FE4E2722A3A5F1200BA35CE /* ContentView.swift in Sources */,
 				2FE4E2702A3A5F1200BA35CE /* EatalyticsApp.swift in Sources */,
+				465A6AE92A3A66640055D8D8 /* Sign up ScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
