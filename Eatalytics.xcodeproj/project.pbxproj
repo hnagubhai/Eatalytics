@@ -16,7 +16,12 @@
 		2FE4E28D2A3A5F1400BA35CE /* EatalyticsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E28C2A3A5F1400BA35CE /* EatalyticsUITestsLaunchTests.swift */; };
 		2FE4E29A2A3A665500BA35CE /* Urbanist.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FE4E2992A3A665400BA35CE /* Urbanist.ttf */; };
 		2FE4E29D2A3B6DD500BA35CE /* Onboarding_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E29C2A3B6DD500BA35CE /* Onboarding_3.swift */; };
-		463F62532A3B6E8200A2A29D /* Welcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F62522A3B6E8100A2A29D /* Welcome.swift */; };
+		2FE4E29F2A3B8A5E00BA35CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FE4E29E2A3B8A5D00BA35CE /* GoogleService-Info.plist */; };
+		2FE4E2A22A3B8C8900BA35CE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2FE4E2A12A3B8C8900BA35CE /* FirebaseAuth */; };
+		2FE4E2A42A3B8EF800BA35CE /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E2A32A3B8EF800BA35CE /* Signup.swift */; };
+		2FE4E2A62A3BBBE100BA35CE /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E2A52A3BBBE100BA35CE /* AuthViewModel.swift */; };
+		2FE4E2A82A3BBDA900BA35CE /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E2A72A3BBDA900BA35CE /* Dashboard.swift */; };
+		463F62532A3B6E8200A2A29D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F62522A3B6E8100A2A29D /* WelcomeView.swift */; };
 		46C6D1D62A3AAC9C002E0FFF /* Onboarding_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6D1D52A3AAC9C002E0FFF /* Onboarding_2.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +56,11 @@
 		2FE4E2992A3A665400BA35CE /* Urbanist.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Urbanist.ttf; sourceTree = "<group>"; };
 		2FE4E29B2A3A678900BA35CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2FE4E29C2A3B6DD500BA35CE /* Onboarding_3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding_3.swift; sourceTree = "<group>"; };
-		463F62522A3B6E8100A2A29D /* Welcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome.swift; sourceTree = "<group>"; };
+		2FE4E29E2A3B8A5D00BA35CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2FE4E2A32A3B8EF800BA35CE /* Signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
+		2FE4E2A52A3BBBE100BA35CE /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		2FE4E2A72A3BBDA900BA35CE /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
+		463F62522A3B6E8100A2A29D /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		46C6D1D52A3AAC9C002E0FFF /* Onboarding_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding_2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FE4E2A22A3B8C8900BA35CE /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,13 +114,17 @@
 			isa = PBXGroup;
 			children = (
 				2FE4E29B2A3A678900BA35CE /* Info.plist */,
+				2FE4E2A52A3BBBE100BA35CE /* AuthViewModel.swift */,
 				2FE4E26F2A3A5F1200BA35CE /* EatalyticsApp.swift */,
-				463F62522A3B6E8100A2A29D /* Welcome.swift */,
+				463F62522A3B6E8100A2A29D /* WelcomeView.swift */,
 				2FE4E2712A3A5F1200BA35CE /* Onboarding_1.swift */,
 				46C6D1D52A3AAC9C002E0FFF /* Onboarding_2.swift */,
 				2FE4E29C2A3B6DD500BA35CE /* Onboarding_3.swift */,
+				2FE4E2A32A3B8EF800BA35CE /* Signup.swift */,
+				2FE4E2A72A3BBDA900BA35CE /* Dashboard.swift */,
 				2FE4E2992A3A665400BA35CE /* Urbanist.ttf */,
 				2FE4E2732A3A5F1400BA35CE /* Assets.xcassets */,
+				2FE4E29E2A3B8A5D00BA35CE /* GoogleService-Info.plist */,
 				2FE4E2752A3A5F1400BA35CE /* Preview Content */,
 			);
 			path = Eatalytics;
@@ -157,6 +171,9 @@
 			dependencies = (
 			);
 			name = Eatalytics;
+			packageProductDependencies = (
+				2FE4E2A12A3B8C8900BA35CE /* FirebaseAuth */,
+			);
 			productName = Eatalytics;
 			productReference = 2FE4E26C2A3A5F1200BA35CE /* Eatalytics.app */;
 			productType = "com.apple.product-type.application";
@@ -229,6 +246,9 @@
 				Base,
 			);
 			mainGroup = 2FE4E2632A3A5F1100BA35CE;
+			packageReferences = (
+				2FE4E2A02A3B8C8900BA35CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 2FE4E26D2A3A5F1200BA35CE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -246,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FE4E2772A3A5F1400BA35CE /* Preview Assets.xcassets in Resources */,
+				2FE4E29F2A3B8A5E00BA35CE /* GoogleService-Info.plist in Resources */,
 				2FE4E2742A3A5F1400BA35CE /* Assets.xcassets in Resources */,
 				2FE4E29A2A3A665500BA35CE /* Urbanist.ttf in Resources */,
 			);
@@ -273,10 +294,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FE4E2722A3A5F1200BA35CE /* Onboarding_1.swift in Sources */,
-				463F62532A3B6E8200A2A29D /* Welcome.swift in Sources */,
+				463F62532A3B6E8200A2A29D /* WelcomeView.swift in Sources */,
+				2FE4E2A82A3BBDA900BA35CE /* Dashboard.swift in Sources */,
 				2FE4E2702A3A5F1200BA35CE /* EatalyticsApp.swift in Sources */,
+				2FE4E2A62A3BBBE100BA35CE /* AuthViewModel.swift in Sources */,
 				2FE4E29D2A3B6DD500BA35CE /* Onboarding_3.swift in Sources */,
 				46C6D1D62A3AAC9C002E0FFF /* Onboarding_2.swift in Sources */,
+				2FE4E2A42A3B8EF800BA35CE /* Signup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +468,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -474,6 +499,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -603,6 +629,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2FE4E2A02A3B8C8900BA35CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2FE4E2A12A3B8C8900BA35CE /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FE4E2A02A3B8C8900BA35CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2FE4E2642A3A5F1100BA35CE /* Project object */;
 }

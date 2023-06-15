@@ -66,8 +66,4 @@ struct Onboarding_1: View {
 }
 
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        Onboarding_1()
-    }
-}
+

@@ -47,13 +47,13 @@ struct Onboarding_3: View {
                 HStack {
                     Spacer()
                     
-                    NavigationLink(destination: Onboarding_2()) {
+                    NavigationLink(destination: Signup()) {
                         Text("GET STARTED")
                             .foregroundColor(Color("Light"))
                             .fontWeight(.semibold)
                             .font(.custom("Urbanist", fixedSize: 25))
                             .foregroundColor(.white)
-                            .padding(.horizontal, 76)
+                            .padding(.horizontal, 70)
                             .padding(.vertical, 20.0)
                             .background(Color("Dark"))
                             .clipShape(Capsule())
