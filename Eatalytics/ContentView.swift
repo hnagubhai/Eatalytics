@@ -55,7 +55,7 @@ struct ContentView: View {
             }
             .padding()
             .navigationBarHidden(true)
-            .background(Color.white.ignoresSafeArea())
+            .background(Color("Light").ignoresSafeArea())
         }
     }
 }
