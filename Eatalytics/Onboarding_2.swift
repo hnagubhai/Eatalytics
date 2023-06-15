@@ -24,13 +24,13 @@ struct Onboarding_2: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, 5)
                         .lineLimit(4)
-                        .minimumScaleFactor(0.5) // Adjust the scale factor as needed
+                        .minimumScaleFactor(0.5)
                 }
                 
                 HStack {
                     Spacer()
                     
-                    Text("Meet Chase, your personalized diet coach! Our resident panda will provide you with personalized reminders, insightful feedback, and supportive messages, empowering you to achieve your goals! \nChase your goals with Chase! ")
+                    Text("Meet Chase, your personalized diet coach! Our resident panda will provide you with personalized reminders, insightful feedback, and supportive messages, empowering you to achieve your goals! \n\nChase your goals with Chase! ")
                         .foregroundColor(Color("Dark"))
                         .fontWeight(.regular)
                         .multilineTextAlignment(.leading)
@@ -38,10 +38,15 @@ struct Onboarding_2: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, 5)
                         .lineLimit(nil)
-                        .minimumScaleFactor(0.5) // Adjust the scale factor as needed
+                        .minimumScaleFactor(0.5)
                 }
                 
-                Spacer()
+              
+                
+                Image("Chase")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(.bottom)
                 
                 HStack {
                     Spacer()
@@ -62,5 +67,10 @@ struct Onboarding_2: View {
             .background(Color("Light").ignoresSafeArea())
         }
     }
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            Onboarding_2()
+        }
+    }
 }
-
