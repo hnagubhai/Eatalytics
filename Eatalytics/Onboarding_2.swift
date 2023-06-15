@@ -66,6 +66,7 @@ struct Onboarding_2: View {
             .navigationBarHidden(true)
             .background(Color("Light").ignoresSafeArea())
         }
+        .navigationBarBackButtonHidden(true) //hide back button
     }
     
     struct ContentView_Previews: PreviewProvider {
