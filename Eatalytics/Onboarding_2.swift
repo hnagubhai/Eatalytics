@@ -50,7 +50,7 @@ struct Onboarding_2: View {
                 
                 HStack {
                     Spacer()
-                    NavigationLink(destination: Onboarding_2()) {
+                    NavigationLink(destination: Onboarding_3()) {
                         Image(systemName: "arrow.right")
                             .font(.system(size: 24))
                             .foregroundColor(.white)
