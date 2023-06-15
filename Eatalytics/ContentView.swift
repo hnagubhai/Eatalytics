@@ -23,6 +23,8 @@ struct ContentView: View {
                         .font(.custom("Urbanist", fixedSize: 45))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, 5)
+                        .lineLimit(5)
+                        .minimumScaleFactor(0.5) // Adjust the scale factor as needed
                 }
                 
                 HStack {
@@ -35,6 +37,8 @@ struct ContentView: View {
                         .font(.custom("Urbanist", fixedSize: 25))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, 5)
+                        .lineLimit(nil)
+                        .minimumScaleFactor(0.5) // Adjust the scale factor as needed
                 }
                 
                 Spacer()
@@ -59,6 +63,7 @@ struct ContentView: View {
         }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
