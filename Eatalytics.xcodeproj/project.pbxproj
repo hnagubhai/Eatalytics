@@ -16,6 +16,7 @@
 		2FE4E28D2A3A5F1400BA35CE /* EatalyticsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E28C2A3A5F1400BA35CE /* EatalyticsUITestsLaunchTests.swift */; };
 		2FE4E29A2A3A665500BA35CE /* Urbanist.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FE4E2992A3A665400BA35CE /* Urbanist.ttf */; };
 		2FE4E29D2A3B6DD500BA35CE /* Onboarding_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E29C2A3B6DD500BA35CE /* Onboarding_3.swift */; };
+		463F62532A3B6E8200A2A29D /* Welcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F62522A3B6E8100A2A29D /* Welcome.swift */; };
 		46C6D1D62A3AAC9C002E0FFF /* Onboarding_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6D1D52A3AAC9C002E0FFF /* Onboarding_2.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		2FE4E2992A3A665400BA35CE /* Urbanist.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Urbanist.ttf; sourceTree = "<group>"; };
 		2FE4E29B2A3A678900BA35CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2FE4E29C2A3B6DD500BA35CE /* Onboarding_3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding_3.swift; sourceTree = "<group>"; };
+		463F62522A3B6E8100A2A29D /* Welcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome.swift; sourceTree = "<group>"; };
 		46C6D1D52A3AAC9C002E0FFF /* Onboarding_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding_2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 			children = (
 				2FE4E29B2A3A678900BA35CE /* Info.plist */,
 				2FE4E26F2A3A5F1200BA35CE /* EatalyticsApp.swift */,
+				463F62522A3B6E8100A2A29D /* Welcome.swift */,
 				2FE4E2712A3A5F1200BA35CE /* ContentView.swift */,
 				46C6D1D52A3AAC9C002E0FFF /* Onboarding_2.swift */,
 				2FE4E29C2A3B6DD500BA35CE /* Onboarding_3.swift */,
@@ -270,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FE4E2722A3A5F1200BA35CE /* ContentView.swift in Sources */,
+				463F62532A3B6E8200A2A29D /* Welcome.swift in Sources */,
 				2FE4E2702A3A5F1200BA35CE /* EatalyticsApp.swift in Sources */,
 				2FE4E29D2A3B6DD500BA35CE /* Onboarding_3.swift in Sources */,
 				46C6D1D62A3AAC9C002E0FFF /* Onboarding_2.swift in Sources */,
