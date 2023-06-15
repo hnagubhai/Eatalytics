@@ -31,7 +31,7 @@ struct Welcome: View {
                 
                 HStack {
                     Spacer()
-                    NavigationLink(destination: ContentView()) {
+                    NavigationLink(destination: Onboarding_1()) {
                         Image(systemName: "arrow.right")
                             .font(.system(size: 24))
                             .foregroundColor(Color("Dark"))
@@ -47,6 +47,7 @@ struct Welcome: View {
             .navigationBarHidden(true)
             .background(Color("Dark").ignoresSafeArea())
         }
+        .navigationBarBackButtonHidden(true)
     }
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {

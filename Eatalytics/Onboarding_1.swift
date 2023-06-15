@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct Onboarding_1: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 50) {
@@ -61,12 +61,13 @@ struct ContentView: View {
             .navigationBarHidden(true)
             .background(Color("Light").ignoresSafeArea())
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Onboarding_1()
     }
 }
