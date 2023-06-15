@@ -9,10 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            Color("Light")
-                .ignoresSafeArea()
-            
+        NavigationView {
             VStack(spacing: 50) {
                 Spacer()
                 
@@ -44,23 +41,22 @@ struct ContentView: View {
                 
                 HStack {
                     Spacer()
-                    Button(action: {
-                        // Action
-                    }) {
+                    NavigationLink(destination: AnotherScreen()) {
                         Image(systemName: "arrow.right")
                             .font(.system(size: 24))
-                            .foregroundColor(Color("Light"))
+                            .foregroundColor(.white)
                             .padding(.all, 30.0)
                             .background(Color("Dark"))
                             .clipShape(Circle())
                     }
-                    .padding(.bottom)
                 }
+                .frame(maxWidth: .infinity, alignment: .bottomTrailing)
+                .padding(.horizontal)
             }
             .padding()
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .navigationBarHidden(true)
+            .background(Color.white.ignoresSafeArea())
         }
-        .edgesIgnoringSafeArea(.all)
     }
 }
 
@@ -69,6 +65,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-
-

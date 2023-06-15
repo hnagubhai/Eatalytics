@@ -15,6 +15,7 @@
 		2FE4E28B2A3A5F1400BA35CE /* EatalyticsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E28A2A3A5F1400BA35CE /* EatalyticsUITests.swift */; };
 		2FE4E28D2A3A5F1400BA35CE /* EatalyticsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E28C2A3A5F1400BA35CE /* EatalyticsUITestsLaunchTests.swift */; };
 		2FE4E29A2A3A665500BA35CE /* Urbanist.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FE4E2992A3A665400BA35CE /* Urbanist.ttf */; };
+		46C6D1D62A3AAC9C002E0FFF /* Onboarding_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6D1D52A3AAC9C002E0FFF /* Onboarding_2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		2FE4E28C2A3A5F1400BA35CE /* EatalyticsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatalyticsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2FE4E2992A3A665400BA35CE /* Urbanist.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Urbanist.ttf; sourceTree = "<group>"; };
 		2FE4E29B2A3A678900BA35CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		46C6D1D52A3AAC9C002E0FFF /* Onboarding_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding_2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				2FE4E29B2A3A678900BA35CE /* Info.plist */,
 				2FE4E26F2A3A5F1200BA35CE /* EatalyticsApp.swift */,
 				2FE4E2712A3A5F1200BA35CE /* ContentView.swift */,
+				46C6D1D52A3AAC9C002E0FFF /* Onboarding_2.swift */,
 				2FE4E2992A3A665400BA35CE /* Urbanist.ttf */,
 				2FE4E2732A3A5F1400BA35CE /* Assets.xcassets */,
 				2FE4E2752A3A5F1400BA35CE /* Preview Content */,
@@ -265,6 +268,7 @@
 			files = (
 				2FE4E2722A3A5F1200BA35CE /* ContentView.swift in Sources */,
 				2FE4E2702A3A5F1200BA35CE /* EatalyticsApp.swift in Sources */,
+				46C6D1D62A3AAC9C002E0FFF /* Onboarding_2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
