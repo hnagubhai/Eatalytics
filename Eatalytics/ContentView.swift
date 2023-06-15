@@ -41,7 +41,7 @@ struct ContentView: View {
                 
                 HStack {
                     Spacer()
-                    NavigationLink(destination: AnotherScreen()) {
+                    NavigationLink(destination: Onboarding_2()) {
                         Image(systemName: "arrow.right")
                             .font(.system(size: 24))
                             .foregroundColor(.white)
