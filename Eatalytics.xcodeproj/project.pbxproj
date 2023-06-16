@@ -21,6 +21,7 @@
 		2FE4E2A42A3B8EF800BA35CE /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E2A32A3B8EF800BA35CE /* Signup.swift */; };
 		2FE4E2A62A3BBBE100BA35CE /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E2A52A3BBBE100BA35CE /* AuthViewModel.swift */; };
 		2FE4E2A82A3BBDA900BA35CE /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E2A72A3BBDA900BA35CE /* Dashboard.swift */; };
+		2FE4E2AA2A3BCD3F00BA35CE /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E2A92A3BCD3F00BA35CE /* SignInView.swift */; };
 		463F62532A3B6E8200A2A29D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F62522A3B6E8100A2A29D /* WelcomeView.swift */; };
 		46C6D1D62A3AAC9C002E0FFF /* Onboarding_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6D1D52A3AAC9C002E0FFF /* Onboarding_2.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		2FE4E2A32A3B8EF800BA35CE /* Signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
 		2FE4E2A52A3BBBE100BA35CE /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		2FE4E2A72A3BBDA900BA35CE /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
+		2FE4E2A92A3BCD3F00BA35CE /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		463F62522A3B6E8100A2A29D /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		46C6D1D52A3AAC9C002E0FFF /* Onboarding_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding_2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +123,7 @@
 				46C6D1D52A3AAC9C002E0FFF /* Onboarding_2.swift */,
 				2FE4E29C2A3B6DD500BA35CE /* Onboarding_3.swift */,
 				2FE4E2A32A3B8EF800BA35CE /* Signup.swift */,
+				2FE4E2A92A3BCD3F00BA35CE /* SignInView.swift */,
 				2FE4E2A72A3BBDA900BA35CE /* Dashboard.swift */,
 				2FE4E2992A3A665400BA35CE /* Urbanist.ttf */,
 				2FE4E2732A3A5F1400BA35CE /* Assets.xcassets */,
@@ -301,6 +304,7 @@
 				2FE4E29D2A3B6DD500BA35CE /* Onboarding_3.swift in Sources */,
 				46C6D1D62A3AAC9C002E0FFF /* Onboarding_2.swift in Sources */,
 				2FE4E2A42A3B8EF800BA35CE /* Signup.swift in Sources */,
+				2FE4E2AA2A3BCD3F00BA35CE /* SignInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
