@@ -34,22 +34,17 @@ struct Signup: View {
                     }
                 }
                 Section {
-                    NavigationLink(destination: SignInView()) {
+                    NavigationLink(destination: SignInView().navigationBarHidden(true)) {
                         Text("Already Have an Account?")
                             .bold()
-                            
                     }
                 }
             }
             .navigationTitle("Sign Up")
-           
         }
         .navigationBarBackButtonHidden(true)
     }
-    
 }
-
-
 
 struct Signup_Previews: PreviewProvider {
     static var previews: some View {
