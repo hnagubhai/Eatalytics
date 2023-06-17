@@ -79,7 +79,7 @@ struct SignInView: View {
             .padding(.horizontal)
             
             Text(errorMessage)
-                .foregroundColor(.red)
+                .foregroundColor(Color("Dark"))
             
             Spacer()
         }

@@ -42,7 +42,9 @@ struct Signup: View {
             }
             .navigationTitle("Sign Up")
         }
+        .navigationBarBackButtonHidden(true)
     }
+    
 }
 
 
