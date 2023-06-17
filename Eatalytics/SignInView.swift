@@ -14,10 +14,7 @@ struct SignInView: View {
     @State private var errorMessage = ""
     @State private var isSignUpActive = false
     
-
-    
     var body: some View {
-        
         NavigationView {
             VStack(spacing: 20) {
                 Text("Welcome Back!")
@@ -84,8 +81,7 @@ struct SignInView: View {
                 .padding(.horizontal)
                 
                 
-                
-                NavigationLink(destination: SignUpView()) {
+                NavigationLink(destination: SignUpView().navigationBarHidden(true)) {
                     Text("Don’t have an account? Sign Up")
                         .foregroundColor(Color("Dark"))
                         .fontWeight(.bold)
@@ -93,9 +89,6 @@ struct SignInView: View {
                         .foregroundColor(.white)
                         .padding(.vertical, 20.0)
                 }
-                
-         
-                
                 
                 Text(errorMessage)
                     .foregroundColor(Color("Dark"))
@@ -129,11 +122,10 @@ struct SignInView: View {
     }
 }
 
-
-
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
         SignInView()
     }
 }
+
 

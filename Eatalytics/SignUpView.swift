@@ -6,49 +6,103 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct SignUpView: View {
-    @EnvironmentObject private var authModel: AuthViewModel
-    @State private var emailAddress: String = ""
-    @State private var password: String = ""
+    @State private var email = ""
+    @State private var password = ""
+    @State private var errorMessage = ""
+    @State private var isSignInActive = false
     
     var body: some View {
         NavigationView {
-            Form {
-                Section {
-                    TextField("Email", text: $emailAddress)
-                        .textContentType(.emailAddress)
-                        .keyboardType(.emailAddress)
+            VStack(spacing: 20) {
+                Text("Create Account")
+                    .fontWeight(.bold)
+                    .foregroundColor(Color("Dark"))
+                    .multilineTextAlignment(.leading)
+                    .font(.custom("Urbanist", fixedSize: 40))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 20)
+                    .lineLimit(5)
+                    .minimumScaleFactor(0.5)
+                
+                TextField("Email", text: $email)
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(30)
+                    .font(.body)
+                    .foregroundColor(Color("Dark"))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 30)
+                            .stroke(Color("LightGray"), lineWidth: 1)
+                    )
+                    .padding(.horizontal)
+                    .textContentType(.emailAddress)
+                    .keyboardType(.emailAddress)
+                    .autocapitalization(.none)
+                
+                SecureField("Password", text: $password)
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(30)
+                    .font(.body)
+                    .foregroundColor(Color("Dark"))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 30)
+                            .stroke(Color("LightGray"), lineWidth: 1)
+                    )
+                    .padding(.horizontal)
+                    .textContentType(.password)
+                
+                Button(action: {
+                    signUp()
+                }) {
+                    Text("Sign Up")
+                        .foregroundColor(Color("Dark"))
+                        .fontWeight(.semibold)
+                        .font(.custom("Urbanist", fixedSize: 14))
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 150)
+                        .padding(.vertical, 20.0)
+                        .background(Color("LightGreen"))
+                        .clipShape(Capsule())
                 }
-                Section {
-                    SecureField("Password", text: $password)
-                        .textContentType(.password)
-                        .keyboardType(.default)
+                .padding(.horizontal)
+                
+                NavigationLink(destination: SignInView().navigationBarHidden(true)) {
+                    Text("Already have an account? Sign In")
+                        .foregroundColor(Color("Dark"))
+                        .fontWeight(.bold)
+                        .font(.custom("Inter", fixedSize: 14))
+                        .foregroundColor(.white)
+                        .padding(.vertical, 20.0)
                 }
-                Section {
-                    Button(action: {
-                        authModel.signUp(emailAddress: emailAddress, password: password)
-                    }) {
-                        Text("Sign Up")
-                            .bold()
-                    }
-                }
-                Section {
-                    NavigationLink(destination: SignInView().navigationBarHidden(true)) {
-                        Text("Already Have an Account?")
-                            .bold()
-                    }
-                }
+                
+                Text(errorMessage)
+                    .foregroundColor(Color("Dark"))
+                
+                Spacer()
             }
-            .navigationTitle("Sign Up")
+            .padding(.vertical, 40)
+            .background(Color("Light").ignoresSafeArea())
+            .navigationBarBackButtonHidden(true)
         }
-        .navigationBarBackButtonHidden(true)
+    }
+    
+    func signUp() {
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                errorMessage = error.localizedDescription
+            } else {
+                print("Sign up successful")
+            }
+        }
     }
 }
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
         SignUpView()
-            .environmentObject(AuthViewModel()) // Provide AuthViewModel as an environment object
     }
 }
