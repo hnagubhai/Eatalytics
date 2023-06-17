@@ -37,10 +37,12 @@ struct Signup: View {
                     NavigationLink(destination: SignInView()) {
                         Text("Already Have an Account?")
                             .bold()
+                            
                     }
                 }
             }
             .navigationTitle("Sign Up")
+           
         }
         .navigationBarBackButtonHidden(true)
     }
