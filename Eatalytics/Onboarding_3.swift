@@ -47,7 +47,7 @@ struct Onboarding_3: View {
                 HStack {
                     Spacer()
                     
-                    NavigationLink(destination: Signup()) {
+                    NavigationLink(destination: SignUpView()) {
                         Text("GET STARTED")
                             .foregroundColor(Color("Light"))
                             .fontWeight(.semibold)

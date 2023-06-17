@@ -14,7 +14,10 @@ struct SignInView: View {
     @State private var errorMessage = ""
     @State private var isSignUpActive = false
     
+
+    
     var body: some View {
+        
         NavigationView {
             VStack(spacing: 20) {
                 Text("Welcome Back!")
@@ -82,7 +85,7 @@ struct SignInView: View {
                 
                 
                 
-                NavigationLink(destination: Signup()) {
+                NavigationLink(destination: SignUpView()) {
                     Text("Don’t have an account? Sign Up")
                         .foregroundColor(Color("Dark"))
                         .fontWeight(.bold)
@@ -126,18 +129,7 @@ struct SignInView: View {
     }
 }
 
-extension View {
-    func placeholder<Content: View>(
-        when shouldShow: Bool,
-        alignment: Alignment = .leading,
-        @ViewBuilder placeholder: () -> Content) -> some View {
 
-        ZStack(alignment: alignment) {
-            placeholder().opacity(shouldShow ? 1 : 0)
-            self
-        }
-    }
-}
 
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {

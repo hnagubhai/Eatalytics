@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Signup: View {
+struct SignUpView: View {
     @EnvironmentObject private var authModel: AuthViewModel
     @State private var emailAddress: String = ""
     @State private var password: String = ""
@@ -46,9 +46,9 @@ struct Signup: View {
     }
 }
 
-struct Signup_Previews: PreviewProvider {
+struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        Signup()
+        SignUpView()
             .environmentObject(AuthViewModel()) // Provide AuthViewModel as an environment object
     }
 }
