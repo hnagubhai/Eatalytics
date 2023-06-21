@@ -11,6 +11,7 @@ import FirebaseAuth
 final class AuthViewModel: ObservableObject {
     @Published var user: User? // Use @Published instead of objectWillChange.send()
     @Published var isSigningUp = false // Track sign-up state
+    @Published var shouldNavigateToDashboard = false
     
     func listenToAuthState() {
         Auth.auth().addStateDidChangeListener { [weak self] _, user in
@@ -20,20 +21,18 @@ final class AuthViewModel: ObservableObject {
     }
     
     func signUp(emailAddress: String, password: String) {
-        Auth.auth().createUser(withEmail: emailAddress, password: password) { [weak self] result, error in
-            guard let self = self else { return }
-            
-            if let error = error {
-                print("An error occurred: \(error.localizedDescription)")
-                return
+            Auth.auth().createUser(withEmail: emailAddress, password: password) { [weak self] result, error in
+                guard let self = self else { return }
+                
+                if let error = error {
+                    print("An error occurred: \(error.localizedDescription)")
+                    return
+                }
+                
+                self.user = result?.user
+                self.shouldNavigateToDashboard = true // Set the navigation state
             }
-            
-            self.user = result?.user // Set the user
-            
-            // Set isSigningUp to false to handle navigation in the view
-            self.isSigningUp = false
         }
-    }
     
     func signOut() {
         do {

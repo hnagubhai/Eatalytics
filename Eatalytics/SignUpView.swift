@@ -96,10 +96,16 @@ struct SignUpView: View {
                 errorMessage = error.localizedDescription
             } else {
                 authModel.user = authResult?.user // Set the user in AuthViewModel
-                authModel.isSigningUp = true
+                authModel.isSigningUp = true // Set isSigningUp to true for navigation
+                
+                // Reset email and password fields
+                email = ""
+                password = ""
             }
         }
     }
+
+
 }
 
 struct SignUpView_Previews: PreviewProvider {
