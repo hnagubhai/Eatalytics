@@ -15,6 +15,8 @@ struct WelcomeView: View {
         Group {
             if authModel.user != nil {
                 Dashboard()
+            } else if authModel.isSigningUp {
+                SetAGoal()
             } else {
                 WelcomeContent()
             }

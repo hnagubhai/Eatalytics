@@ -12,7 +12,7 @@ struct SignUpView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var errorMessage = ""
-    @State private var isSignInActive = false
+    @EnvironmentObject private var authModel: AuthViewModel
     
     var body: some View {
         NavigationView {
@@ -95,7 +95,8 @@ struct SignUpView: View {
             if let error = error {
                 errorMessage = error.localizedDescription
             } else {
-                print("Sign up successful")
+                authModel.user = authResult?.user // Set the user in AuthViewModel
+                authModel.isSigningUp = true
             }
         }
     }
