@@ -8,25 +8,30 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct WelcomeView: View {
     @EnvironmentObject private var authModel: AuthViewModel
     
     var body: some View {
-        Group {
-            if authModel.user != nil {
-                Dashboard()
-            } else if authModel.isSigningUp {
-                SetAGoal()
-            } else {
-                WelcomeContent()
+        NavigationView {
+            Group {
+                if authModel.user != nil {
+                    Dashboard()
+                } else if authModel.isSigningUp {
+                    SetAGoal()
+                } else {
+                    WelcomeContent()
+                }
+            }
+            .navigationBarBackButtonHidden(true)
+            .onAppear {
+                authModel.listenToAuthState()
             }
         }
-        .onAppear {
-            authModel.listenToAuthState()
-        }
-        .navigationBarBackButtonHidden(true)
     }
 }
+
 
 struct WelcomeContent: View {
     var body: some View {
