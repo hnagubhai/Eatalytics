@@ -107,7 +107,7 @@ struct SetAGoal: View {
                     VStack {
                         Spacer()
                         
-                        NavigationLink(destination: Dashboard()) {
+                        NavigationLink(destination: ContentView()) {
                             Text("DONE")
                                 .foregroundColor(Color("Light"))
                                 .fontWeight(.semibold)
