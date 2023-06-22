@@ -81,7 +81,7 @@ struct SignInView: View {
                 .padding(.horizontal)
                 
                 
-                NavigationLink(destination: WelcomeView().navigationBarHidden(true)) {
+                NavigationLink(destination: SignUpView().navigationBarHidden(true)) {
                     Text("Don’t have an account? Sign Up")
                         .foregroundColor(Color("Dark"))
                         .fontWeight(.bold)
