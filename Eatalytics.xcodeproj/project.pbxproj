@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F54CAAE2A44B40C00E1B50C /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54CAAD2A44B40C00E1B50C /* ExploreView.swift */; };
+		2F54CAB02A44B42400E1B50C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54CAAF2A44B42400E1B50C /* SettingsView.swift */; };
+		2F54CAB22A44BFCE00E1B50C /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54CAB12A44BFCE00E1B50C /* TabView.swift */; };
 		2FE4E2702A3A5F1200BA35CE /* EatalyticsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E26F2A3A5F1200BA35CE /* EatalyticsApp.swift */; };
 		2FE4E2722A3A5F1200BA35CE /* Onboarding_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E2712A3A5F1200BA35CE /* Onboarding_1.swift */; };
 		2FE4E2742A3A5F1400BA35CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FE4E2732A3A5F1400BA35CE /* Assets.xcassets */; };
@@ -45,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F54CAAD2A44B40C00E1B50C /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		2F54CAAF2A44B42400E1B50C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		2F54CAB12A44BFCE00E1B50C /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		2FAEAA062A3E4DE400D10DCE /* Inter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Inter.ttf; sourceTree = "<group>"; };
 		2FE4E26C2A3A5F1200BA35CE /* Eatalytics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eatalytics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FE4E26F2A3A5F1200BA35CE /* EatalyticsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatalyticsApp.swift; sourceTree = "<group>"; };
@@ -128,7 +134,10 @@
 				2FE4E29C2A3B6DD500BA35CE /* Onboarding_3.swift */,
 				2FE4E2A32A3B8EF800BA35CE /* SignUpView.swift */,
 				2FE4E2A92A3BCD3F00BA35CE /* SignInView.swift */,
+				2F54CAB12A44BFCE00E1B50C /* TabView.swift */,
 				2FE4E2A72A3BBDA900BA35CE /* Dashboard.swift */,
+				2F54CAAD2A44B40C00E1B50C /* ExploreView.swift */,
+				2F54CAAF2A44B42400E1B50C /* SettingsView.swift */,
 				2FAEAA062A3E4DE400D10DCE /* Inter.ttf */,
 				2FE4E2992A3A665400BA35CE /* Urbanist.ttf */,
 				2FE4E2732A3A5F1400BA35CE /* Assets.xcassets */,
@@ -303,6 +312,7 @@
 			files = (
 				2FE4E2722A3A5F1200BA35CE /* Onboarding_1.swift in Sources */,
 				463F62532A3B6E8200A2A29D /* WelcomeView.swift in Sources */,
+				2F54CAB22A44BFCE00E1B50C /* TabView.swift in Sources */,
 				2FE4E2A82A3BBDA900BA35CE /* Dashboard.swift in Sources */,
 				2FE4E2702A3A5F1200BA35CE /* EatalyticsApp.swift in Sources */,
 				2FE4E2A62A3BBBE100BA35CE /* AuthViewModel.swift in Sources */,
@@ -310,7 +320,9 @@
 				46C6D1D62A3AAC9C002E0FFF /* Onboarding_2.swift in Sources */,
 				2FE4E2A42A3B8EF800BA35CE /* SignUpView.swift in Sources */,
 				2FE4E2AA2A3BCD3F00BA35CE /* SignInView.swift in Sources */,
+				2F54CAAE2A44B40C00E1B50C /* ExploreView.swift in Sources */,
 				46A52E872A3E550600368C5F /* SetAGoal.swift in Sources */,
+				2F54CAB02A44B42400E1B50C /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

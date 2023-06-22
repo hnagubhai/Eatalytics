@@ -20,9 +20,9 @@ struct WelcomeView: View {
                             .navigationBarBackButtonHidden(true)
                             .navigationBarHidden(true)
                     } else {
-                        Dashboard()
-                           // .navigationBarBackButtonHidden(true)
-                           // .navigationBarHidden(true)
+                        ContentView()
+                            .navigationBarBackButtonHidden(true)
+                            //.navigationBarHidden(true)
                     }
                 } else {
                     WelcomeContent()

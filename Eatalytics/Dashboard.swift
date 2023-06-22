@@ -7,26 +7,17 @@
 
 import SwiftUI
 
-
 struct Dashboard: View {
     @EnvironmentObject private var authModel: AuthViewModel
+    
     var body: some View {
-        VStack {
-        Text("\(authModel.user?.email ?? "")")
-        }.toolbar {
-        ToolbarItemGroup(placement: .navigationBarLeading) { Button(
-        action: { authModel.signOut()
-        }, label: {
-        Text("Sign Out") .bold()
-        })
-        }
-        }
+            Text("\(authModel.user?.email ?? "")")
     }
-}
-
-struct Dashboard_Previews: PreviewProvider {
-    static var previews: some View {
-        Dashboard()
-            .environmentObject(AuthViewModel())
+    
+    struct Dashboard_Previews: PreviewProvider {
+        static var previews: some View {
+            Dashboard()
+                .environmentObject(AuthViewModel())
+        }
     }
 }
