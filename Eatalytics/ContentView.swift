@@ -12,35 +12,26 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            NavigationView {
-                Dashboard()
-                    .navigationBarTitle("Dashboard")
-            }
-            .tabItem {
-                Image(systemName: "house")
-                Text("Dashboard")
-            }
-            .tag(0)
+            Dashboard()
+                .tabItem {
+                    Image(systemName: "house")
+                    Text("Dashboard")
+                }
+                .tag(0)
             
-            NavigationView {
-                ExploreView()
-                    .navigationBarTitle("Explore")
-            }
-            .tabItem {
-                Image(systemName: "magnifyingglass")
-                Text("Explore")
-            }
-            .tag(1)
+            ExploreView()
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Explore")
+                }
+                .tag(1)
             
-            NavigationView {
-                SettingsView()
-                    .navigationBarTitle("Settings")
-            }
-            .tabItem {
-                Image(systemName: "gear")
-                Text("Settings")
-            }
-            .tag(2)
+            SettingsView()
+                .tabItem {
+                    Image(systemName: "gear")
+                    Text("Settings")
+                }
+                .tag(2)
         }
         .overlay(
             TabBar(selectedTab: $selectedTab),
@@ -84,6 +75,7 @@ struct TabBar: View {
         .shadow(radius: 2)
     }
 }
+
 
 
 

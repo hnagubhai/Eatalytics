@@ -11,7 +11,18 @@ struct Dashboard: View {
     @EnvironmentObject private var authModel: AuthViewModel
     
     var body: some View {
+        VStack(spacing: 0) {
+            Text("Dashboard")
+                .fontWeight(.bold)
+                .foregroundColor(Color("Dark"))
+                .multilineTextAlignment(.leading)
+                .font(.custom("Urbanist", fixedSize: 40))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, 20)
+                .lineLimit(5)
+                .minimumScaleFactor(0.5)
             Text("\(authModel.user?.email ?? "")")
+        }
     }
     
     struct Dashboard_Previews: PreviewProvider {

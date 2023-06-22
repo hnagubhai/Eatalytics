@@ -12,21 +12,25 @@ struct SettingsView: View {
     var body: some View {
         VStack {
             Text("\(authModel.user?.email ?? "")")
-        }
-        .toolbar {
-            ToolbarItemGroup(placement: .navigationBarLeading) {
-                Button(action: {
-                    authModel.signOut()
-                }, label: {
-                    Text("Sign Out").bold()
-                })
-            }
+            Spacer()
+            Button(action: {
+                authModel.signOut()
+            }, label: {
+                Text("Sign Out").bold()
+                    .padding()
+                    .background(Color.red)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            })
+            Spacer()
         }
         .navigationTitle("Settings")
     }
 }
+
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
     }
 }
+
