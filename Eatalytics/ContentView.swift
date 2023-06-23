@@ -73,6 +73,7 @@ struct TabBar: View {
         .padding()
         .background(Color.white)
         .shadow(radius: 2)
+        .navigationBarBackButtonHidden(true)
     }
 }
 

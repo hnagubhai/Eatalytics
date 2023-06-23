@@ -10,13 +10,13 @@ import Combine
 
 struct SetAGoal: View {
     @State private var value: String = "0"
+    @Environment(\.presentationMode) var presentationMode
+    @State private var shouldNavigate: Bool = false
     
     var body: some View {
-        NavigationView {
+        ZStack {
             GeometryReader { geometry in
                 VStack(spacing: 50) {
-                    //Spacer()
-                    
                     Text("Set a Goal!")
                         .fontWeight(.heavy)
                         .foregroundColor(Color("Dark"))
@@ -107,7 +107,14 @@ struct SetAGoal: View {
                     VStack {
                         Spacer()
                         
-                        NavigationLink(destination: ContentView()) {
+                        NavigationLink(destination: ContentView(), isActive: $shouldNavigate) {
+                            EmptyView()
+                        }
+                        .hidden()
+                        
+                        Button(action: {
+                            shouldNavigate = true
+                        }) {
                             Text("DONE")
                                 .foregroundColor(Color("Light"))
                                 .fontWeight(.semibold)
@@ -123,14 +130,14 @@ struct SetAGoal: View {
                     .padding(.horizontal)
                 }
                 .padding()
-                .navigationBarHidden(true)
                 .background(Color("Light").ignoresSafeArea())
                 .frame(height: geometry.size.height)
             }
         }
-        .navigationBarBackButtonHidden(true) //hide back button
+        .navigationBarBackButtonHidden(true) // Hide back button
     }
 }
+
 
 struct SetAGoal_Previews: PreviewProvider {
     static var previews: some View {
