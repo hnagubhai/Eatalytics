@@ -26,6 +26,8 @@
 		2FE4E2A82A3BBDA900BA35CE /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E2A72A3BBDA900BA35CE /* Dashboard.swift */; };
 		2FE4E2AA2A3BCD3F00BA35CE /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E2A92A3BCD3F00BA35CE /* SignInView.swift */; };
 		463F62532A3B6E8200A2A29D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F62522A3B6E8100A2A29D /* WelcomeView.swift */; };
+		468DF9C32A45231300CE512B /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DF9C22A45231300CE512B /* TaskViewModel.swift */; };
+		468DF9C52A45235B00CE512B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DF9C42A45235B00CE512B /* Task.swift */; };
 		46A52E872A3E550600368C5F /* SetAGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A52E862A3E550600368C5F /* SetAGoal.swift */; };
 		46C6D1D62A3AAC9C002E0FFF /* Onboarding_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6D1D52A3AAC9C002E0FFF /* Onboarding_2.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +73,8 @@
 		2FE4E2A72A3BBDA900BA35CE /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		2FE4E2A92A3BCD3F00BA35CE /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		463F62522A3B6E8100A2A29D /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		468DF9C22A45231300CE512B /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
+		468DF9C42A45235B00CE512B /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		46A52E862A3E550600368C5F /* SetAGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAGoal.swift; sourceTree = "<group>"; };
 		46C6D1D52A3AAC9C002E0FFF /* Onboarding_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding_2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +140,8 @@
 				2FE4E2A92A3BCD3F00BA35CE /* SignInView.swift */,
 				2F54CAB12A44BFCE00E1B50C /* ContentView.swift */,
 				2FE4E2A72A3BBDA900BA35CE /* Dashboard.swift */,
+				468DF9C22A45231300CE512B /* TaskViewModel.swift */,
+				468DF9C42A45235B00CE512B /* Task.swift */,
 				2F54CAAD2A44B40C00E1B50C /* ExploreView.swift */,
 				2F54CAAF2A44B42400E1B50C /* SettingsView.swift */,
 				2FAEAA062A3E4DE400D10DCE /* Inter.ttf */,
@@ -311,11 +317,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FE4E2722A3A5F1200BA35CE /* Onboarding_1.swift in Sources */,
+				468DF9C32A45231300CE512B /* TaskViewModel.swift in Sources */,
 				463F62532A3B6E8200A2A29D /* WelcomeView.swift in Sources */,
 				2F54CAB22A44BFCE00E1B50C /* ContentView.swift in Sources */,
 				2FE4E2A82A3BBDA900BA35CE /* Dashboard.swift in Sources */,
 				2FE4E2702A3A5F1200BA35CE /* EatalyticsApp.swift in Sources */,
 				2FE4E2A62A3BBBE100BA35CE /* AuthViewModel.swift in Sources */,
+				468DF9C52A45235B00CE512B /* Task.swift in Sources */,
 				2FE4E29D2A3B6DD500BA35CE /* Onboarding_3.swift in Sources */,
 				46C6D1D62A3AAC9C002E0FFF /* Onboarding_2.swift in Sources */,
 				2FE4E2A42A3B8EF800BA35CE /* SignUpView.swift in Sources */,
