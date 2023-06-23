@@ -89,7 +89,7 @@ struct Dashboard: View {
                 
                 if tasks.isEmpty{
                     
-                    Text("No tasks found!!!")
+                    Text("No tasks found")
                         .font(.system(size: 16))
                         .fontWeight(.light)
                         .offset(y: 100)
@@ -116,93 +116,47 @@ struct Dashboard: View {
     }
     
     // MARK: Task Card View
-    func TaskCardView(task: Task)->some View{
-        
-        HStack(alignment: .top,spacing: 30){
-            VStack(spacing: 10){
+    func TaskCardView(task: Task) -> some View {
+        HStack(alignment: .top, spacing: 30) {
+            VStack(spacing: 10) {
                 Circle()
-                    .fill(taskModel.isCurrentHour(date: task.taskDate) ? .black : .clear)
+                    .fill(Color.clear)
                     .frame(width: 15, height: 15)
                     .background(
-                    
                         Circle()
-                            .stroke(.black,lineWidth: 1)
+                            .stroke(Color.black, lineWidth: 1)
                             .padding(-3)
                     )
-                    .scaleEffect(!taskModel.isCurrentHour(date: task.taskDate) ? 0.8 : 1)
-                
+                    .scaleEffect(0.8)
+
                 Rectangle()
-                    .fill(.black)
+                    .fill(Color.black)
                     .frame(width: 3)
             }
-            
-            VStack{
-                
+
+            VStack {
                 HStack(alignment: .top, spacing: 10) {
-                    
                     VStack(alignment: .leading, spacing: 12) {
-                        
                         Text(task.taskTitle)
                             .font(.title2.bold())
-                        
+
                         Text(task.taskDescription)
                             .font(.callout)
                             .foregroundStyle(.secondary)
                     }
                     .hLeading()
-                    
+
                     Text(task.taskDate.formatted(date: .omitted, time: .shortened))
                 }
-                
-                if taskModel.isCurrentHour(date: task.taskDate){
-                    
-                    // MARK: Team Members
-                    HStack(spacing: 0){
-                        
-                        HStack(spacing: -10){
-                            
-                            ForEach(["User1","User2","User3"],id: \.self){user in
-                                
-                                Image(user)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 45, height: 45)
-                                    .clipShape(Circle())
-                                    .background(
-                                    
-                                        Circle()
-                                            .stroke(.black,lineWidth: 5)
-                                    )
-                            }
-                        }
-                        .hLeading()
-                        
-                        // MARK: Check Button
-                        Button {
-                            
-                        } label: {
-                            
-                            Image(systemName: "checkmark")
-                                .foregroundStyle(.black)
-                                .padding(10)
-                                .background(Color.white,in: RoundedRectangle(cornerRadius: 10))
-                        }
-                    }
-                    .padding(.top)
-                }
             }
-            .foregroundColor(taskModel.isCurrentHour(date: task.taskDate) ? .white : .black)
-            .padding(taskModel.isCurrentHour(date: task.taskDate) ? 15 : 0)
-            .padding(.bottom,taskModel.isCurrentHour(date: task.taskDate) ? 0 : 10)
+            .foregroundColor(Color("Dark"))
+            //.padding()
+            //.padding(.bottom, 10)
             .hLeading()
-            .background(
-                Color("Black")
-                    .cornerRadius(25)
-                    .opacity(taskModel.isCurrentHour(date: task.taskDate) ? 1 : 0)
-            )
         }
         .hLeading()
     }
+
     
     // MARK: Header
     func HeaderView()->some View{
@@ -223,11 +177,12 @@ struct Dashboard: View {
                 
             } label: {
                 
-                Image("Profile")
+                Image(systemName: "plus")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 45, height: 45)
+                    .frame(width: 25, height: 25)
                     .clipShape(Circle())
+                    .foregroundColor(Color("Dark"))
             }
 
         }
