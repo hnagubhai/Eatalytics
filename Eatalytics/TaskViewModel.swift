@@ -12,15 +12,15 @@ class TaskViewModel: ObservableObject{
     // Sample Tasks
     @Published var storedTasks: [Task] = [
     
-        Task(taskTitle: "Meeting", taskDescription: "Discuss team task for the day", taskDate: .init(timeIntervalSince1970: 1687399947)),
-        Task(taskTitle: "Icon set", taskDescription: "Edit icons for team task for next week", taskDate: .init(timeIntervalSince1970: 1687550565)),
-        Task(taskTitle: "Prototype", taskDescription: "Make and send prototype", taskDate: .init(timeIntervalSince1970: 1687550575)),
-        Task(taskTitle: "Check asset", taskDescription: "Start checking the assets", taskDate: .init(timeIntervalSince1970: 1687550585)),
-        Task(taskTitle: "Team party", taskDescription: "Make fun with team mates", taskDate: .init(timeIntervalSince1970: 1687550595)),
-        Task(taskTitle: "Client Meeting", taskDescription: "Explain project to clinet", taskDate: .init(timeIntervalSince1970: 1687550515)),
+        Task(taskTitle: "Pizza", taskDescription: "500 Calories", taskDate: .init(timeIntervalSince1970: 1687731893)),
+        Task(taskTitle: "Burger", taskDescription: "500 Calories", taskDate: .init(timeIntervalSince1970: 1687731893)),
+        Task(taskTitle: "Carrots", taskDescription: "500 Calories", taskDate: .init(timeIntervalSince1970: 1687731893)),
+        Task(taskTitle: "Chips", taskDescription: "500 Calories", taskDate: .init(timeIntervalSince1970: 1687731893)),
+        Task(taskTitle: "Pasta", taskDescription: "500 Calories", taskDate: .init(timeIntervalSince1970: 1687731893)),
+        Task(taskTitle: "Noodles", taskDescription: "500 Calories", taskDate: .init(timeIntervalSince1970: 1687731893)),
         
-        Task(taskTitle: "Next Project", taskDescription: "Discuss next project with team", taskDate: .init(timeIntervalSince1970: 1687550525)),
-        Task(taskTitle: "App Proposal", taskDescription: "Meet client for next App Proposal", taskDate: .init(timeIntervalSince1970: 1687550535)),
+        Task(taskTitle: "Oranges", taskDescription: "500 Calories", taskDate: .init(timeIntervalSince1970: 1687731893)),
+        Task(taskTitle: "Apples", taskDescription: "500 Calories", taskDate: .init(timeIntervalSince1970: 1687731893)),
     ]
     
     // MARK: Current Week Days

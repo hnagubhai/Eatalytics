@@ -10,6 +10,7 @@
 		2F54CAAE2A44B40C00E1B50C /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54CAAD2A44B40C00E1B50C /* ExploreView.swift */; };
 		2F54CAB02A44B42400E1B50C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54CAAF2A44B42400E1B50C /* SettingsView.swift */; };
 		2F54CAB22A44BFCE00E1B50C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54CAB12A44BFCE00E1B50C /* ContentView.swift */; };
+		2F54CABB2A4642A400E1B50C /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54CABA2A4642A400E1B50C /* SheetView.swift */; };
 		2FE4E2702A3A5F1200BA35CE /* EatalyticsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E26F2A3A5F1200BA35CE /* EatalyticsApp.swift */; };
 		2FE4E2722A3A5F1200BA35CE /* Onboarding_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4E2712A3A5F1200BA35CE /* Onboarding_1.swift */; };
 		2FE4E2742A3A5F1400BA35CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FE4E2732A3A5F1400BA35CE /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		2F54CAAD2A44B40C00E1B50C /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		2F54CAAF2A44B42400E1B50C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2F54CAB12A44BFCE00E1B50C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2F54CABA2A4642A400E1B50C /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		2FAEAA062A3E4DE400D10DCE /* Inter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Inter.ttf; sourceTree = "<group>"; };
 		2FE4E26C2A3A5F1200BA35CE /* Eatalytics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eatalytics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FE4E26F2A3A5F1200BA35CE /* EatalyticsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatalyticsApp.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				2F54CAAD2A44B40C00E1B50C /* ExploreView.swift */,
 				2F54CAAF2A44B42400E1B50C /* SettingsView.swift */,
 				2FAEAA062A3E4DE400D10DCE /* Inter.ttf */,
+				2F54CABA2A4642A400E1B50C /* SheetView.swift */,
 				2FE4E2992A3A665400BA35CE /* Urbanist.ttf */,
 				2FE4E2732A3A5F1400BA35CE /* Assets.xcassets */,
 				2FE4E29E2A3B8A5D00BA35CE /* GoogleService-Info.plist */,
@@ -330,6 +333,7 @@
 				2FE4E2AA2A3BCD3F00BA35CE /* SignInView.swift in Sources */,
 				2F54CAAE2A44B40C00E1B50C /* ExploreView.swift in Sources */,
 				46A52E872A3E550600368C5F /* SetAGoal.swift in Sources */,
+				2F54CABB2A4642A400E1B50C /* SheetView.swift in Sources */,
 				2F54CAB02A44B42400E1B50C /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

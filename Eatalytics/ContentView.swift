@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selectedTab: Int = 0
-    
+    @State private var showingSheet = false
+
     var body: some View {
         TabView(selection: $selectedTab) {
             Dashboard()
@@ -37,6 +38,9 @@ struct ContentView: View {
             TabBar(selectedTab: $selectedTab),
             alignment: .bottom
         )
+        .sheet(isPresented: $showingSheet) {
+            SheetView()
+        }
     }
 }
 
@@ -76,7 +80,6 @@ struct TabBar: View {
         .navigationBarBackButtonHidden(true)
     }
 }
-
 
 
 

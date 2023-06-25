@@ -10,6 +10,7 @@ import SwiftUI
 struct Dashboard: View {
     @StateObject var taskModel: TaskViewModel = TaskViewModel()
     @Namespace var animation
+    @State private var isSheetPresented = false
     
     var body: some View {
         
@@ -89,7 +90,7 @@ struct Dashboard: View {
                 
                 if tasks.isEmpty{
                     
-                    Text("No tasks found")
+                    Text("No food logged")
                         .font(.system(size: 16))
                         .fontWeight(.light)
                         .offset(y: 100)
@@ -173,9 +174,9 @@ struct Dashboard: View {
             }
             .hLeading()
             
-            Button {
-                
-            } label: {
+            Button(action: {
+                            isSheetPresented = true
+                        }) {
                 
                 Image(systemName: "plus")
                     .resizable()
@@ -184,7 +185,9 @@ struct Dashboard: View {
                     .clipShape(Circle())
                     .foregroundColor(Color("Dark"))
             }
-
+                        .sheet(isPresented: $isSheetPresented) {
+                            SheetView()
+                        }
         }
         .padding()
         .padding(.top,getSafeArea().top)
@@ -197,6 +200,7 @@ struct Dashboard_Previews: PreviewProvider {
         Dashboard()
     }
 }
+
 
 // MARK: UI Design Helper functions
 extension View{
