@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct TabBarView: View {
-    @State private var selectedTab = "Home"
+    @State private var selectedTab = "Dashboard"
 
     var body: some View {
         VStack(spacing: 0) {
             TabView(selection: $selectedTab) {
                 Dashboard()
-                    .tag("Home")
+                    .tag("Dashboard")
                 
                 ExploreView()
-                    .tag("Restaurants")
+                    .tag("Explore")
                 
                 SettingsView()
-                    .tag("Orders")
+                    .tag("Settings")
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             
