@@ -19,7 +19,7 @@ struct Dashboard: View {
             // MARK: Lazy Stack With Pinned Header
             LazyVStack(spacing: 15, pinnedViews: [.sectionHeaders]) {
                 
-                Section {
+                Section(header: HeaderView()) {
                     
                     // MARK: Current Week View
                     ScrollView(.horizontal, showsIndicators: false) {
@@ -39,9 +39,8 @@ struct Dashboard: View {
                                         .font(.system(size: 14))
                                     
                                     Circle()
-                                        .fill(.white)
+                                        .fill(taskModel.isToday(date: day) ? Color.white : Color.clear)
                                         .frame(width: 8, height: 8)
-                                        .opacity(taskModel.isToday(date: day) ? 1 : 0)
                                 }
                                 // MARK: Foreground Style
                                 .foregroundStyle(taskModel.isToday(date: day) ? .primary : .secondary)
@@ -49,12 +48,12 @@ struct Dashboard: View {
                                 // MARK: Capsule Shape
                                 .frame(width: 45, height: 90)
                                 .background(
-                                
+                                    
                                     ZStack{
                                         // MARK: Matched Geometry Effect
                                         if taskModel.isToday(date: day){
                                             Capsule()
-                                                .fill(.black)
+                                                .fill(Color.black)
                                                 .matchedGeometryEffect(id: "CURRENTDAY", in: animation)
                                         }
                                     }
@@ -73,12 +72,10 @@ struct Dashboard: View {
                     
                     TasksView()
                     
-                } header: {
-                    HeaderView()
                 }
             }
         }
-        .ignoresSafeArea(.container, edges: .top)
+        .ignoresSafeArea(edges: .top)
     }
     
     // MARK: Tasks View
@@ -129,55 +126,49 @@ struct Dashboard: View {
                             .padding(-3)
                     )
                     .scaleEffect(0.8)
-
+                
                 Rectangle()
                     .fill(Color.black)
                     .frame(width: 3)
             }
-
-            VStack {
+            
+            VStack(alignment: .leading) { // Adjusted alignment
                 HStack(alignment: .top, spacing: 10) {
                     VStack(alignment: .leading, spacing: 12) {
                         Text(task.taskTitle)
                             .font(.title2.bold())
-
+                        
                         Text(task.taskDescription)
                             .font(.callout)
                             .foregroundStyle(.secondary)
                     }
-                    .hLeading()
-
+                    .frame(maxWidth: .infinity, alignment: .leading) // Removed hLeading()
+                    
                     Text(task.taskDate.formatted(date: .omitted, time: .shortened))
                 }
             }
             .foregroundColor(Color("Dark"))
             //.padding()
-            //.padding(.bottom, 10)
-            .hLeading()
+            //.padding(.bottom, 10) // Adjusted padding
         }
-        .hLeading()
     }
-
     
     // MARK: Header
-    func HeaderView()->some View{
-        
-        HStack(spacing: 10){
-            
+    func HeaderView() -> some View {
+        HStack(spacing: 10) {
             VStack(alignment: .leading, spacing: 10) {
-                
                 Text(Date().formatted(date: .abbreviated, time: .omitted))
                     .foregroundColor(.gray)
-                
+                    .frame(maxWidth: .infinity, alignment: .leading) // Removed hLeading()
                 Text("Today")
                     .font(.largeTitle.bold())
+                    .frame(maxWidth: .infinity, alignment: .leading) // Removed hLeading()
             }
-            .hLeading()
+            Spacer()
             
             Button(action: {
-                            isSheetPresented = true
-                        }) {
-                
+                isSheetPresented = true
+            }) {
                 Image(systemName: "plus")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -185,12 +176,11 @@ struct Dashboard: View {
                     .clipShape(Circle())
                     .foregroundColor(Color("Dark"))
             }
-                        .sheet(isPresented: $isSheetPresented) {
-                            SheetView()
-                        }
+            .sheet(isPresented: $isSheetPresented) {
+                SheetView()
+            }
         }
         .padding()
-        .padding(.top,getSafeArea().top)
         .background(Color.white)
     }
 }
@@ -201,36 +191,4 @@ struct Dashboard_Previews: PreviewProvider {
     }
 }
 
-
-// MARK: UI Design Helper functions
-extension View{
-    
-    func hLeading()->some View{
-        self
-            .frame(maxWidth: .infinity,alignment: .leading)
-    }
-    
-    func hTrailing()->some View{
-        self
-            .frame(maxWidth: .infinity,alignment: .trailing)
-    }
-    
-    func hCenter()->some View{
-        self
-            .frame(maxWidth: .infinity,alignment: .center)
-    }
-    
-    // MARK: Safe Area
-    func getSafeArea()->UIEdgeInsets{
-        guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else{
-            return .zero
-        }
-        
-        guard let safeArea = screen.windows.first?.safeAreaInsets else{
-            return .zero
-        }
-        
-        return safeArea
-    }
-}
 
