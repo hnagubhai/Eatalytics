@@ -9,111 +9,115 @@ import SwiftUI
 
 struct Dashboard: View {
     @StateObject var taskModel: TaskViewModel = TaskViewModel()
+    @StateObject var taskViewModel = TaskViewModel()
     @Namespace var animation
     @State private var isSheetPresented = false
     
     var body: some View {
-        
-        ScrollView(.vertical, showsIndicators: false) {
-            
-            // MARK: Lazy Stack With Pinned Header
-            LazyVStack(spacing: 15, pinnedViews: [.sectionHeaders]) {
-                
-                Section(header: HeaderView()) {
-                    
-                    // MARK: Current Week View
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        
-                        HStack(spacing: 10){
-                            
-                            ForEach(taskModel.currentWeek,id: \.self){day in
-                                
-                                VStack(spacing: 10){
-                                    
-                                    Text(taskModel.extractDate(date: day, format: "dd"))
-                                        .font(.system(size: 15))
-                                        .fontWeight(.semibold)
-                                    
-                                    // EEE will return day as MON,TUE,....etc
-                                    Text(taskModel.extractDate(date: day, format: "EEE"))
-                                        .font(.system(size: 14))
-                                    
-                                    Circle()
-                                        .fill(taskModel.isToday(date: day) ? Color.white : Color.clear)
-                                        .frame(width: 8, height: 8)
-                                }
-                                // MARK: Foreground Style
-                                .foregroundStyle(taskModel.isToday(date: day) ? .primary : .secondary)
-                                .foregroundColor(taskModel.isToday(date: day) ? .white : .black)
-                                // MARK: Capsule Shape
-                                .frame(width: 45, height: 90)
-                                .background(
-                                    
-                                    ZStack{
-                                        // MARK: Matched Geometry Effect
-                                        if taskModel.isToday(date: day){
-                                            Capsule()
-                                                .fill(Color.black)
-                                                .matchedGeometryEffect(id: "CURRENTDAY", in: animation)
-                                        }
+        NavigationView {
+            ScrollView(.vertical, showsIndicators: false) {
+                LazyVStack(spacing: 15, pinnedViews: [.sectionHeaders]) {
+                    Section(header: HeaderView()) {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 10) {
+                                ForEach(taskModel.currentWeek, id: \.self) { day in
+                                    VStack(spacing: 10) {
+                                        Text(taskModel.extractDate(date: day, format: "dd"))
+                                            .font(.system(size: 15))
+                                            .fontWeight(.semibold)
+                                        Text(taskModel.extractDate(date: day, format: "EEE"))
+                                            .font(.system(size: 14))
+                                        Circle()
+                                            .fill(taskModel.isToday(date: day) ? Color.white : Color.clear)
+                                            .frame(width: 8, height: 8)
                                     }
-                                )
-                                .contentShape(Capsule())
-                                .onTapGesture {
-                                    // Updating Current Day
-                                    withAnimation{
-                                        taskModel.currentDay = day
+                                    .foregroundStyle(taskModel.isToday(date: day) ? .primary : .secondary)
+                                    .foregroundColor(taskModel.isToday(date: day) ? .white : .black)
+                                    .frame(width: 45, height: 90)
+                                    .background(
+                                        ZStack {
+                                            if taskModel.isToday(date: day) {
+                                                Capsule()
+                                                    .fill(Color.black)
+                                                    .matchedGeometryEffect(id: "CURRENTDAY", in: animation)
+                                            }
+                                        }
+                                    )
+                                    .contentShape(Capsule())
+                                    .onTapGesture {
+                                        withAnimation {
+                                            taskModel.currentDay = day
+                                        }
                                     }
                                 }
                             }
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
+                        
+                        LazyVStack(spacing: 20) {
+                            if let tasks = taskModel.filteredTasks {
+                                if tasks.isEmpty {
+                                    Text("No food logged")
+                                        .font(.system(size: 16))
+                                        .fontWeight(.light)
+                                        .offset(y: 100)
+                                } else {
+                                    ForEach(tasks) { task in
+                                        TaskCardView(task: task)
+                                    }
+                                }
+                            } else {
+                                ProgressView()
+                                    .offset(y: 100)
+                            }
+                        }
+                        .padding()
+                        .padding(.top)
+                        .onChange(of: taskModel.currentDay) { newValue in
+                            taskModel.filterTodayTasks()
+                        }
                     }
-                    
-                    TasksView()
+                }
+            }
+            .ignoresSafeArea(edges: .top)
+            .background(Color("Light").edgesIgnoringSafeArea(.all))
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        isSheetPresented = true
+                    }) {
+                        Image(systemName: "plus")
+                            .font(.title2)
+                            .foregroundColor(Color("Dark"))
+                    }
+                    .padding(.vertical, 80)
+                    .padding(.horizontal, 12)
                     
                 }
+            }
+
+            .sheet(isPresented: $isSheetPresented) {
+                SheetView()
             }
         }
-        .ignoresSafeArea(edges: .top)
     }
     
-    // MARK: Tasks View
-    func TasksView()->some View{
-        
-        LazyVStack(spacing: 20){
-            
-            if let tasks = taskModel.filteredTasks{
-                
-                if tasks.isEmpty{
-                    
-                    Text("No food logged")
-                        .font(.system(size: 16))
-                        .fontWeight(.light)
-                        .offset(y: 100)
-                }
-                else{
-                    
-                    ForEach(tasks){task in
-                        TaskCardView(task: task)
-                    }
-                }
+    func HeaderView() -> some View {
+        HStack(spacing: 10) {
+            VStack(alignment: .leading, spacing: 10) {
+                Text(Date().formatted(date: .abbreviated, time: .omitted))
+                    .foregroundColor(.gray)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Text("Today")
+                    .font(.largeTitle.bold())
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
-            else{
-                // MARK: Progress View
-                ProgressView()
-                    .offset(y: 100)
-            }
+            Spacer()
         }
         .padding()
-        .padding(.top)
-        // MARK: Updating Tasks
-        .onChange(of: taskModel.currentDay) { newValue in
-            taskModel.filterTodayTasks()
-        }
+        .padding(.top, getSafeArea().top)
     }
     
-    // MARK: Task Card View
     func TaskCardView(task: Task) -> some View {
         HStack(alignment: .top, spacing: 30) {
             VStack(spacing: 10) {
@@ -132,7 +136,7 @@ struct Dashboard: View {
                     .frame(width: 3)
             }
             
-            VStack(alignment: .leading) { // Adjusted alignment
+            VStack(alignment: .leading) {
                 HStack(alignment: .top, spacing: 10) {
                     VStack(alignment: .leading, spacing: 12) {
                         Text(task.taskTitle)
@@ -142,46 +146,46 @@ struct Dashboard: View {
                             .font(.callout)
                             .foregroundStyle(.secondary)
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading) // Removed hLeading()
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     
                     Text(task.taskDate.formatted(date: .omitted, time: .shortened))
                 }
             }
             .foregroundColor(Color("Dark"))
-            //.padding()
-            //.padding(.bottom, 10) // Adjusted padding
         }
     }
     
-    // MARK: Header
-    func HeaderView() -> some View {
-        HStack(spacing: 10) {
-            VStack(alignment: .leading, spacing: 10) {
-                Text(Date().formatted(date: .abbreviated, time: .omitted))
-                    .foregroundColor(.gray)
-                    .frame(maxWidth: .infinity, alignment: .leading) // Removed hLeading()
-                Text("Today")
-                    .font(.largeTitle.bold())
-                    .frame(maxWidth: .infinity, alignment: .leading) // Removed hLeading()
-            }
-            Spacer()
-            
-            Button(action: {
-                isSheetPresented = true
-            }) {
-                Image(systemName: "plus")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 25, height: 25)
-                    .clipShape(Circle())
-                    .foregroundColor(Color("Dark"))
-            }
-            .sheet(isPresented: $isSheetPresented) {
-                SheetView()
+    struct SheetView: View {
+        @Environment(\.dismiss) var dismiss
+        
+        var body: some View {
+            VStack {
+                Text("Sheet View")
+                    .font(.largeTitle)
+                
+                Button(action: {
+                    dismiss()
+                }) {
+                    Text("Dismiss")
+                        .padding()
+                        .background(Color.red)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
             }
         }
-        .padding()
-        .background(Color.white)
+    }
+    
+    func getSafeArea() -> UIEdgeInsets {
+        guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+            return .zero
+        }
+        
+        guard let safeArea = screen.windows.first?.safeAreaInsets else {
+            return .zero
+        }
+        
+        return safeArea
     }
 }
 
@@ -190,5 +194,4 @@ struct Dashboard_Previews: PreviewProvider {
         Dashboard()
     }
 }
-
 

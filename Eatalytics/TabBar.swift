@@ -8,64 +8,56 @@
 import SwiftUI
 
 struct TabBar: View {
-    @Binding var selectedTab: String
+    @State var current = "Dashboard"
+    @State var selection: Int? = nil
     
     var body: some View {
-        HStack(spacing: 0) {
-            ForEach(tabs, id: \.self) { tab in
-                TabButton(title: tab, selectedTab: $selectedTab)
-                if tab != tabs.last {
-                    Spacer(minLength: 0)
-                }
-            }
-        }
-        .padding(.horizontal, 30)
-        .background(Color("LightGreen"))
-    }
-}
-
-struct TabButton: View {
-    var title: String
-    @Binding var selectedTab: String
-    
-    var body: some View {
-        Button(action: {
-            selectedTab = title
-        }) {
-            VStack(spacing: 6) {
-                ZStack {
-                    CustomShape()
-                        .fill(Color.clear)
-                        .frame(width: 45, height: 6)
+        NavigationView {
+            ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
+                TabView(selection: $current){
+                    Dashboard()
+                        .tag("Dashboard")
                     
-                    if selectedTab == title {
-                        CustomShape()
-                            .fill(Color("tint"))
-                            .frame(width: 45, height: 6)
-                    }
+                    ExploreView()
+                        .tag("Explore")
+                    
+                    SettingsView()
+                        .tag("Settings")
                 }
-                .padding(.bottom, 10)
                 
-                Image(title)
-                    .renderingMode(.template)
-                    .resizable()
-                    .foregroundColor(selectedTab == title ? Color("tint") : Color.black.opacity(0.2))
-                    .frame(width: 24, height: 24)
-                
-                Text(title)
-                    .font(.caption)
-                    .fontWeight(.regular)
-                    .foregroundColor(Color.black.opacity(selectedTab == title ? 0.6 : 0.2))
+                HStack(spacing: 0) {
+                    TabButton(title: "Dashboard", systemName: "house", selected: $current)
+                        .onTapGesture {
+                            current = "Dashboard"
+                            selection = nil
+                        }
+                    
+                    Spacer(minLength: 0)
+                    
+                    TabButton(title: "Explore", systemName: "magnifyingglass", selected: $current)
+                        .onTapGesture {
+                            current = "Explore"
+                            selection = 1
+                        }
+                    
+                    Spacer(minLength: 0)
+                    
+                    TabButton(title: "Settings", systemName: "gear", selected: $current)
+                        .onTapGesture {
+                            current = "Settings"
+                            selection = 2
+                        }
+                }
+                .padding(.vertical, 12)
+                .padding(.horizontal)
+                .background(Color("Dark"))
+                .clipShape(Capsule())
+                .padding(.horizontal, 25)
             }
+            .navigationBarHidden(true)
+            .background(NavigationLink("", destination: EmptyView(), tag: 1, selection: $selection))
+            .background(NavigationLink("", destination: EmptyView(), tag: 2, selection: $selection))
         }
     }
 }
 
-struct CustomShape: Shape {
-    func path(in rect: CGRect) -> Path {
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 10, height: 10))
-        return Path(path.cgPath)
-    }
-}
-
-var tabs = ["Dashboard", "Explore", "Settings"]

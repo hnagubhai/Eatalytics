@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    // hiding tab bar...
+    init() {
+        UITabBar.appearance().isHidden = true
+    }
     var body: some View {
-        NavigationView {
-            TabBarView()
-        }
-        .navigationBarHidden(true) // Hide the navigation bar
+
+        TabBar()
     }
 }
 
