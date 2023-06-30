@@ -81,21 +81,20 @@ struct Dashboard: View {
             }
             .ignoresSafeArea(edges: .top)
             .background(Color("Light").edgesIgnoringSafeArea(.all))
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        isSheetPresented = true
-                    }) {
-                        Image(systemName: "plus")
-                            .font(.title2)
-                            .foregroundColor(Color("Dark"))
-                    }
-                    .padding(.vertical, 80)
-                    .padding(.horizontal, 12)
-                    
+            .overlay(
+                Button(action: {
+                    isSheetPresented = true
+                }) {
+                    Image(systemName: "plus")
+                        .font(.title2)
+                        .foregroundColor(Color("Dark"))
                 }
-            }
-
+                .padding(.horizontal, 12)
+                .frame(maxWidth: .infinity, alignment: .topTrailing)
+                .padding(.trailing)
+                .padding(.top, 0)
+                , alignment: .topTrailing
+            )
             .sheet(isPresented: $isSheetPresented) {
                 SheetView()
             }
@@ -194,4 +193,5 @@ struct Dashboard_Previews: PreviewProvider {
         Dashboard()
     }
 }
+
 
