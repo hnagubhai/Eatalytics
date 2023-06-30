@@ -115,6 +115,7 @@ struct Dashboard: View {
         }
         .padding()
         .padding(.top, getSafeArea().top)
+        .background(Color("Light"))
     }
     
     func TaskCardView(task: Task) -> some View {
