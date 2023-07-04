@@ -1,21 +1,20 @@
 //
-//  ContentView.swift
-//  Eatalytics2
+//  TabView.swift
+//  Eatalytics
 //
-//  Created by Hemanth Nagubhai on 7/3/23.
+//  Created by Hemanth Nagubhai on 6/22/23.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+    // hiding tab bar...
+    init() {
+        UITabBar.appearance().isHidden = true
+    }
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+
+        TabBar()
     }
 }
 
@@ -24,3 +23,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
