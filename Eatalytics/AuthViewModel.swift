@@ -7,7 +7,7 @@
 
 import SwiftUI
 import FirebaseAuth
-
+//HELLO
 final class AuthViewModel: ObservableObject {
     @Published var user: User? // Use @Published instead of objectWillChange.send()
     @Published var isSigningUp = false // Track sign-up state
