@@ -35,6 +35,8 @@
 		2F2F9ADB2A547D8F00305CC0 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F9ADA2A547D8F00305CC0 /* AuthViewModel.swift */; };
 		2F2F9ADD2A547DB300305CC0 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F9ADC2A547DB300305CC0 /* SignUpView.swift */; };
 		2F2F9ADF2A547DCC00305CC0 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F9ADE2A547DCC00305CC0 /* SignInView.swift */; };
+		2F2F9AE42A54818700305CC0 /* Inter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F2F9AE22A54818700305CC0 /* Inter.ttf */; };
+		2F2F9AE52A54818700305CC0 /* Urbanist.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F2F9AE32A54818700305CC0 /* Urbanist.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,12 +82,12 @@
 		2F2F9A972A539C9900305CC0 /* Onboarding_1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Onboarding_1.swift; sourceTree = "<group>"; };
 		2F2F9A9C2A53A01600305CC0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F2F9AC02A53A35C00305CC0 /* ViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHandler.swift; sourceTree = "<group>"; };
-		2F2F9AC42A53A55900305CC0 /* Inter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Inter.ttf; sourceTree = "<group>"; };
-		2F2F9AC52A53A55900305CC0 /* Urbanist.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Urbanist.ttf; sourceTree = "<group>"; };
 		2F2F9AC62A53A6EC00305CC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F2F9ADA2A547D8F00305CC0 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		2F2F9ADC2A547DB300305CC0 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		2F2F9ADE2A547DCC00305CC0 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		2F2F9AE22A54818700305CC0 /* Inter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Inter.ttf; sourceTree = "<group>"; };
+		2F2F9AE32A54818700305CC0 /* Urbanist.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Urbanist.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,19 +226,11 @@
 		2F2F9AC22A53A53100305CC0 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				2F2F9AE22A54818700305CC0 /* Inter.ttf */,
+				2F2F9AE32A54818700305CC0 /* Urbanist.ttf */,
 				2F0355D32A5369580039E66C /* Assets.xcassets */,
-				2F2F9AC32A53A53C00305CC0 /* Fonts */,
 			);
 			path = Assets;
-			sourceTree = "<group>";
-		};
-		2F2F9AC32A53A53C00305CC0 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				2F2F9AC42A53A55900305CC0 /* Inter.ttf */,
-				2F2F9AC52A53A55900305CC0 /* Urbanist.ttf */,
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 		2F2F9AD32A547C9800305CC0 /* Registration */ = {
@@ -364,6 +358,8 @@
 				2F0355D72A5369580039E66C /* Preview Assets.xcassets in Resources */,
 				2F0355D42A5369580039E66C /* Assets.xcassets in Resources */,
 				2F2F9A9D2A53A01700305CC0 /* GoogleService-Info.plist in Resources */,
+				2F2F9AE42A54818700305CC0 /* Inter.ttf in Resources */,
+				2F2F9AE52A54818700305CC0 /* Urbanist.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
