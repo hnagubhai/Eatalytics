@@ -7,7 +7,7 @@
 
 import SwiftUI
 import FirebaseAuth
-//testing again !!
+//replacing this
 final class AuthViewModel: ObservableObject {
     var user: User? {
         didSet {
