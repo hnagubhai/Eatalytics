@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  Eatalytics
 //
-//  Created by Hemanth Nagubhai on 6/14/23.
+//  
 //
 
 import SwiftUI

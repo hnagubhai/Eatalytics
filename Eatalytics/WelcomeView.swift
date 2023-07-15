@@ -2,7 +2,7 @@
 //  Welcome.swift
 //  Eatalytics
 //
-//  Created by Manas Jain on 6/15/23.
+//  
 //
 
 

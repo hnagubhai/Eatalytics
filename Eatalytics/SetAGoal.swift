@@ -2,7 +2,7 @@
 //  Set a Goal.swift
 //  Eatalytics
 //
-//  Created by Manas Jain on 6/17/23.
+//  
 //
 
 import SwiftUI

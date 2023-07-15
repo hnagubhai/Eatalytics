@@ -2,7 +2,7 @@
 //  TabBar.swift
 //  Eatalytics
 //
-//  Created by Hemanth Nagubhai on 6/25/23.
+//  
 //
 
 import SwiftUI
