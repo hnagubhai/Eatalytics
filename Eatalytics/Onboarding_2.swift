@@ -2,7 +2,7 @@
 //  Onboarding_2.swift
 //  Eatalytics
 //
-//  Created by Manas Jain on 6/14/23.
+//  
 //
 
 import SwiftUI
