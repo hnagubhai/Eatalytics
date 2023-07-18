@@ -15,7 +15,11 @@ import FirebaseAuth
 
 class TaskViewModel: ObservableObject {
     // Sample Tasks
-    @Published var storedTasks: [Task] = []
+    @Published var storedTasks: [Task] = []  {
+        didSet {
+            filterTodayTasks()
+        }
+    }
 
     // MARK: Current Week Days
     @Published var currentWeek: [Date] = []
