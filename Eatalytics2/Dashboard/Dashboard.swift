@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct Dashboard: View {
     @StateObject var taskModel: TaskViewModel = TaskViewModel()
-    @StateObject var taskViewModel = TaskViewModel()
     @Namespace var animation
     @State private var isSheetPresented = false
-    
+
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
@@ -53,7 +53,7 @@ struct Dashboard: View {
                             }
                             .padding(.horizontal)
                         }
-                        
+
                         LazyVStack(spacing: 20) {
                             if let tasks = taskModel.filteredTasks {
                                 if tasks.isEmpty {
@@ -86,10 +86,10 @@ struct Dashboard: View {
             }
         }
     }
-    
+
     struct HeaderView: View {
         @Binding var isSheetPresented: Bool
-        
+
         var body: some View {
             HStack(spacing: 10) {
                 VStack(alignment: .leading, spacing: 10) {
@@ -114,7 +114,7 @@ struct Dashboard: View {
             .background(Color("Light"))
         }
     }
-    
+
     func TaskCardView(task: Task) -> some View {
         HStack(alignment: .top, spacing: 30) {
             VStack(spacing: 10) {
@@ -127,39 +127,39 @@ struct Dashboard: View {
                             .padding(-3)
                     )
                     .scaleEffect(0.8)
-                
+
                 Rectangle()
                     .fill(Color.black)
                     .frame(width: 3)
             }
-            
+
             VStack(alignment: .leading) {
                 HStack(alignment: .top, spacing: 10) {
                     VStack(alignment: .leading, spacing: 12) {
                         Text(task.taskTitle)
                             .font(.title2.bold())
-                        
+
                         Text(task.taskDescription)
                             .font(.callout)
                             .foregroundStyle(.secondary)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    
+
                     Text(task.taskDate.formatted(date: .omitted, time: .shortened))
                 }
             }
             .foregroundColor(Color("Dark"))
         }
     }
-    
+
     struct SheetView: View {
         @Environment(\.dismiss) var dismiss
-        
+
         var body: some View {
             VStack {
                 Text("Sheet View")
                     .font(.largeTitle)
-                
+
                 Button(action: {
                     dismiss()
                 }) {
@@ -172,25 +172,28 @@ struct Dashboard: View {
             }
         }
     }
-    
 
-}
-func getSafeArea() -> UIEdgeInsets {
-    guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
-        return .zero
-    }
     
-    guard let safeArea = screen.windows.first?.safeAreaInsets else {
-        return .zero
-    }
-    
-    return safeArea
-}
-
 struct Dashboard_Previews: PreviewProvider {
     static var previews: some View {
         Dashboard()
     }
 }
+    
+ 
+}
+
+func getSafeArea() -> UIEdgeInsets {
+    guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+        return .zero
+    }
+
+    guard let safeArea = screen.windows.first?.safeAreaInsets else {
+        return .zero
+    }
+
+    return safeArea
+}
+
 
 
