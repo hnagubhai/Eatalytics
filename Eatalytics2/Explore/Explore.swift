@@ -21,9 +21,9 @@ struct Explore: View {
 
     @GestureState var isDragging = false
     
-    // adding cart items...
+    // adding bookmark items...
     
-    @State var cart : [Item] = []
+    @State var bookmark : [Item] = []
     
     var body: some View {
         
@@ -31,34 +31,70 @@ struct Explore: View {
             
             HStack{
                 
-                Button(action: {}) {
+                VStack(alignment: .leading, spacing: 8) {
                     
-                    Image(systemName: "line.horizontal.3.decrease")
-                        .font(.title)
+                    Text("Explore")
+                        .font(.largeTitle)
+                        .fontWeight(.heavy)
                         .foregroundColor(.black)
                 }
                 
                 Spacer()
                 
+                Menu(content: {
+                    
+                    Button(action: {size = "Small"}) {
+                        
+                        Text("Small")
+                    }
+                    
+                    Button(action: {size = "Medium"}) {
+                        
+                        Text("Medium")
+                    }
+                    
+                    Button(action: {size = "Large"}) {
+                        
+                        Text("Large")
+                    }
+                    
+                }) {
+                    
+                    Label(title: {
+                        Text(size)
+                            .foregroundColor(.white)
+                    }) {
+                        
+                        Image(systemName: "slider.vertical.3")
+                            .foregroundColor(.white)
+                    }
+                    .padding(.vertical,10)
+                    .padding(.horizontal)
+                    .background(Color.black)
+                    .clipShape(Capsule())
+                }
+
+                Spacer()
+                
                 Button(action: {}) {
                     
-                    Image(systemName: "cart")
+                    Image(systemName: "bookmark")
                         .font(.title)
                         .foregroundColor(.black)
                 }
                 .overlay(
                 
-                    // Cart Count....
-                    Text("\(cart.count)")
+                    // bookmark Count....
+                    Text("\(bookmark.count)")
                         .font(.caption)
                         .foregroundColor(.white)
                         .fontWeight(.heavy)
                         .frame(width: 20, height: 20)
-                        .background(Color("tab"))
+                        .background(Color("Dark"))
                         .clipShape(Circle())
                         .offset(x: 15, y: -22)
                     // disbling if no items...
-                        .opacity(cart.isEmpty ? 0 : 1)
+                        .opacity(bookmark.isEmpty ? 0 : 1)
                 )
             }
             .padding(.horizontal)
@@ -68,60 +104,6 @@ struct Explore: View {
             ScrollView{
                 
                 VStack{
-                    
-                    HStack{
-                        
-                        VStack(alignment: .leading, spacing: 8) {
-                            
-                            Text("Furniture in \nUnique Style")
-                                .font(.largeTitle)
-                                .fontWeight(.heavy)
-                                .foregroundColor(.black)
-                            
-                            Text("WE have wide range of furnitures")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                                .fontWeight(.bold)
-                        }
-                        
-                        Spacer(minLength: 15)
-                        
-                        // Menu Button...
-                        
-                        Menu(content: {
-                            
-                            Button(action: {size = "Small"}) {
-                                
-                                Text("Small")
-                            }
-                            
-                            Button(action: {size = "Medium"}) {
-                                
-                                Text("Medium")
-                            }
-                            
-                            Button(action: {size = "Large"}) {
-                                
-                                Text("Large")
-                            }
-                            
-                        }) {
-                            
-                            Label(title: {
-                                Text(size)
-                                    .foregroundColor(.white)
-                            }) {
-                                
-                                Image(systemName: "slider.vertical.3")
-                                    .foregroundColor(.white)
-                            }
-                            .padding(.vertical,10)
-                            .padding(.horizontal)
-                            .background(Color.black)
-                            .clipShape(Capsule())
-                        }
-                    }
-                    .padding()
                     
                     HStack(spacing: 0){
                         
@@ -160,21 +142,13 @@ struct Explore: View {
                                 
                                 Spacer()
                                 
-                                Button(action: {}) {
-                                    
-                                    Image(systemName: "suit.heart")
-                                        .font(.title)
-                                        .foregroundColor(.white)
-                                    // default frame...
-                                        .frame(width: 65)
-                                }
-                                
+                                                                
                                 Button(action: {
-                                    addCart(index: index)
+                                    addBookmark(index: index)
                                 }) {
                                     
-                                    // changing cart image..
-                                    Image(systemName: checkCart(index: index) ? "cart.badge.minus" :  "cart.badge.plus")
+                                    // changing bookmark image..
+                                    Image(systemName: checkBookmark(index: index) ? "bookmark.fill" :  "bookmark")
                                         .font(.title)
                                         .foregroundColor(.white)
                                     // default frame...
@@ -203,29 +177,30 @@ struct Explore: View {
                 .padding(.bottom,100)
             }
         }
+        .background(Color("Light").edgesIgnoringSafeArea(.all))
     }
     
-    // checking cart and adding item...
+    // checking bookmark and adding item...
     
-    func checkCart(index: Int)-> Bool{
+    func checkBookmark(index: Int)-> Bool{
         
-        return cart.contains { (item) -> Bool in
+        return bookmark.contains { (item) -> Bool in
             
             return item.id == items[index].id
         }
     }
     
-    func addCart(index: Int){
+    func addBookmark(index: Int){
         
-        if checkCart(index: index){
+        if checkBookmark(index: index){
             
-            cart.removeAll { (item) -> Bool in
+            bookmark.removeAll { (item) -> Bool in
                 return item.id == items[index].id
             }
         }
         else{
             
-            cart.append(items[index])
+            bookmark.append(items[index])
         }
         
         // closing after added...
@@ -265,3 +240,9 @@ struct Explore: View {
 }
 
 var tabs = ["Tables","Chairs","Lamps","All"]
+
+struct Explore_Previews: PreviewProvider {
+    static var previews: some View {
+        Explore()
+    }
+}
