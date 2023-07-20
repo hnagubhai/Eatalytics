@@ -13,10 +13,21 @@ struct Explore: View {
     @State var currentTab = "All"
     
     @State var items = [
-        
-        Item(title: "Stylish Table Lamp", price: "$20.00", subTitle: "We have amazing quality Lamp wide range.", image: "lamp"),
-        Item(title: "Modern Chair", price: "$60.00", subTitle: "New style of tables for your home and office.", image: "chair"),
-        Item(title: "Wodden Stool", price: "$35.00", subTitle: "Amazing Stylish in multiple Most selling item of this.", image: "stool"),
+        //appetizer
+        Item(title: "Apple & Brie Upside-Down Tarts", price: "231 Calories", subTitle: "40 Minutes, https://www.eatingwell.com/recipe/8053762/apple-brie-upside-down-tarts/", image: "apple"),
+        //appetizer
+        Item(title: "Air-Fryer Buffalo Wings", price: "302 Calories", subTitle: "70 Minutes, https://www.eatingwell.com/recipe/274220/air-fryer-buffalo-wings/", image: "wings"),
+        //main
+        Item(title: "Chicken Curry Stuffed Sweet Potatoes", price: "257 Calories", subTitle: "30 Minutes, https://www.eatingwell.com/recipe/275785/chicken-curry-stuffed-sweet-potatoes/", image: "curry"),//main
+        Item(title: "Chickpea Pasta with Mushrooms & Kale", price: "340 Calories", subTitle: "30 Minutes, https://www.eatingwell.com/recipe/7939117/chickpea-pasta-with-mushrooms-kale/", image: "pasta"),
+        //dessert
+        Item(title: "Classic Fudge-Walnut Brownies", price: "186 Calories", subTitle: "45 Minutes, https://www.eatingwell.com/recipe/238086/classic-fudge-walnut-brownies/", image: "brownies"),
+        //dessert
+        Item(title: "Lemon-Blueberry Poke Cake", price: "335 Calories", subTitle: "100 Minutes, https://www.eatingwell.com/recipe/7994194/lemon-blueberry-poke-cake/", image: "cake"),
+        //drink
+        Item(title: "Homemade Pumpkin Spice Latte", price: "207 Calories", subTitle: "5 Minutes, https://feelgoodfoodie.net/recipe/homemade-pumpkin-spice-latte/", image: "latte"),
+        //drink
+        Item(title: "Iced Matcha Latte", price: "176 Calories", subTitle: "5 Minutes, https://feelgoodfoodie.net/recipe/homemade-pumpkin-spice-latte/", image: "matcha"),
     ]
 
     @GestureState var isDragging = false

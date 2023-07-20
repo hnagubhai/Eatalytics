@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "AppleBrieUpsideDownPuffPastry-RM-0958-1-1-2000-5249353baa5b42219d7995a361f31bef.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
