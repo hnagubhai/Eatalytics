@@ -99,8 +99,13 @@ class TaskViewModel: ObservableObject {
     }
 
     // MARK: Load Tasks from Firestore
-    func loadTasksFromFirestore() {
-        db.collection("items").getDocuments { [weak self] (snapshot, error) in
+    func loadTasksFromFirestore(completion: @escaping ([Task]) -> Void) {
+        guard let userUID = Auth.auth().currentUser?.uid else {
+            print("User not authenticated.")
+            return
+        }
+        
+        db.collection("users").document(userUID).collection("items").getDocuments { [weak self] (snapshot, error) in
             guard let self = self else { return }
 
             if let error = error {
@@ -111,22 +116,18 @@ class TaskViewModel: ObservableObject {
             var tasks: [Task] = []
 
             for document in snapshot?.documents ?? [] {
-                //
-                print("Retrieved document: \(document.data())")
-                //
                 if let taskDict = document.data() as? [String: Any],
                    let task = Task.fromDictionary(taskDict) {
                     tasks.append(task)
                 }
             }
-            //
-            print("Fetched tasks from Firestore: \(tasks)")
-            //
+
             DispatchQueue.main.async {
                 self.storedTasks = tasks
             }
         }
     }
+
 }
 
 extension Task {

@@ -98,25 +98,46 @@ struct SignUpView: View {
             if let error = error {
                 errorMessage = error.localizedDescription
             } else if let user = authResult?.user {
-                // User signup successful, create user document in Firestore
+               
                 let db = Firestore.firestore()
                 let userRef = db.collection("users").document(user.uid)
                 
-                // Set initial data for the user document (if needed)
+                
+                let createdAtTimestamp = Timestamp(date: Date())
                 userRef.setData([
-                    "email": user.email ?? "", // Store user's email
-                    "createdAt": Timestamp(date: Date()) // Store the current date as the creation timestamp
-                    // Add other user-specific data fields as needed...
+                    "email": user.email ?? "",
+                    "createdAt": createdAtTimestamp
                 ]) { error in
                     if let error = error {
-                        // Handle Firestore write error
+                        
                         errorMessage = "Error creating user document: \(error.localizedDescription)"
                     } else {
-                        // User document created successfully
-                        authModel.user = user // Set the user in AuthViewModel
-                        errorMessage = "" // Reset the error message
+                       
+                        authModel.user = user
+                        errorMessage = ""
                         
-                        // Reset email and password fields
+                        
+                        let itemsCollectionRef = userRef.collection("items")
+                        
+                        
+                        let defaultItem = [
+                            "taskDate": createdAtTimestamp,
+                            "taskTitle": "Default",
+                            "taskDescription": "Null"
+                        ]
+                        
+                       
+                        itemsCollectionRef.addDocument(data: defaultItem) { error in
+                            if let error = error {
+                               
+                                print("Error creating default item: \(error.localizedDescription)")
+                            } else {
+                                
+                                print("Default item added successfully")
+                            }
+                        }
+                        
+                     
                         email = ""
                         password = ""
                     }
@@ -124,6 +145,8 @@ struct SignUpView: View {
             }
         }
     }
+
+
 
 
 
