@@ -118,41 +118,58 @@ struct Dashboard: View {
     }
 
     func TaskCardView(task: Task) -> some View {
-        HStack(alignment: .top, spacing: 30) {
-            VStack(spacing: 10) {
-                Circle()
-                    .fill(Color.clear)
-                    .frame(width: 15, height: 15)
-                    .background(
-                        Circle()
-                            .stroke(Color.black, lineWidth: 1)
-                            .padding(-3)
-                    )
-                    .scaleEffect(0.8)
-
-                Rectangle()
-                    .fill(Color.black)
-                    .frame(width: 3)
+        VStack(spacing: 10) {
+            HStack{
+                
+                Text("LOG")
+                    .font(.headline)
+                    .foregroundColor(Color("Dark"))
+                Spacer()
             }
+           
+            Divider()
+                .background(Color.gray)
+                .padding(.vertical, 5)
 
-            VStack(alignment: .leading) {
-                HStack(alignment: .top, spacing: 10) {
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text(task.taskTitle)
-                            .font(.title2.bold())
+            HStack(alignment: .top, spacing: 30) {
+                VStack(spacing: 10) {
+                    Circle()
+                        .fill(Color.clear)
+                        .frame(width: 15, height: 15)
+                        .background(
+                            Circle()
+                                .stroke(Color.black, lineWidth: 1)
+                                .padding(-3)
+                        )
+                        .scaleEffect(0.8)
 
-                        Text(task.taskDescription)
-                            .font(.callout)
-                            .foregroundStyle(.secondary)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-
-                    Text(task.taskDate.formatted(date: .omitted, time: .shortened))
+                    Rectangle()
+                        .fill(Color.black)
+                        .frame(width: 3)
                 }
+
+                VStack(alignment: .leading) {
+                    HStack(alignment: .top, spacing: 10) {
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text(task.taskTitle)
+                                .font(.title2.bold())
+
+                            Text(task.taskDescription)
+                                .font(.callout)
+                                .foregroundStyle(.secondary)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                        Text(task.taskDate.formatted(date: .omitted, time: .shortened))
+                    }
+                }
+                .foregroundColor(Color("Dark"))
             }
-            .foregroundColor(Color("Dark"))
+
+            
         }
     }
+
 
     struct SheetView: View {
         @Environment(\.dismiss) var dismiss
