@@ -61,6 +61,7 @@ struct Dashboard: View {
                                         .font(.system(size: 16))
                                         .fontWeight(.light)
                                         .offset(y: 100)
+                                        .foregroundColor(Color("Dark"))
                                 } else {
                                     ForEach(tasks) { task in
                                         TaskCardView(task: task)
@@ -96,9 +97,10 @@ struct Dashboard: View {
                     Text(Date().formatted(date: .abbreviated, time: .omitted))
                         .foregroundColor(.gray)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("Today")
+                    Text(getGreeting())
                         .font(.largeTitle.bold())
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundColor(Color("Dark"))
                 }
                 Spacer()
                 Button(action: {
@@ -193,6 +195,18 @@ func getSafeArea() -> UIEdgeInsets {
     }
 
     return safeArea
+}
+
+func getGreeting() -> String {
+    let hour = Calendar.current.component(.hour, from: Date())
+    
+    if (hour >= 0 && hour < 12) {
+        return "Good Morning!"
+    } else if (hour >= 12 && hour < 17) {
+        return "Good Afternoon!"
+    } else {
+        return "Good Evening!"
+    }
 }
 
 

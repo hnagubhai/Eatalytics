@@ -7,6 +7,9 @@
 
 import SwiftUI
 import Firebase
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
 
 struct SignUpView: View {
     @State private var email = ""
@@ -94,15 +97,34 @@ struct SignUpView: View {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 errorMessage = error.localizedDescription
-            } else {
-                authModel.user = authResult?.user // Set the user in AuthViewModel
+            } else if let user = authResult?.user {
+                // User signup successful, create user document in Firestore
+                let db = Firestore.firestore()
+                let userRef = db.collection("users").document(user.uid)
                 
-                // Reset email and password fields
-                email = ""
-                password = ""
+                // Set initial data for the user document (if needed)
+                userRef.setData([
+                    "email": user.email ?? "", // Store user's email
+                    "createdAt": Timestamp(date: Date()) // Store the current date as the creation timestamp
+                    // Add other user-specific data fields as needed...
+                ]) { error in
+                    if let error = error {
+                        // Handle Firestore write error
+                        errorMessage = "Error creating user document: \(error.localizedDescription)"
+                    } else {
+                        // User document created successfully
+                        authModel.user = user // Set the user in AuthViewModel
+                        errorMessage = "" // Reset the error message
+                        
+                        // Reset email and password fields
+                        email = ""
+                        password = ""
+                    }
+                }
             }
         }
     }
+
 
 
 }
