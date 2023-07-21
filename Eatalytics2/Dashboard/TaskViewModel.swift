@@ -29,6 +29,8 @@ class TaskViewModel: ObservableObject {
 
     // MARK: Filtering Today Tasks
     @Published var filteredTasks: [Task]?
+    
+    private var userItemsListener: ListenerRegistration?
 
     // Firestore reference
     private let db = Firestore.firestore()
@@ -127,8 +129,67 @@ class TaskViewModel: ObservableObject {
             }
         }
     }
+    // MARK: Add Task to Firestore
+    func addTaskToFirestore(task: Task) {
+            guard let userUID = Auth.auth().currentUser?.uid else {
+                print("User not authenticated.")
+                return
+            }
+            
+            let data: [String: Any] = [
+                "taskTitle": task.taskTitle,
+                "taskDescription": task.taskDescription,
+                "taskDate": Timestamp(date: task.taskDate)
+            ]
+            
+            let userRef = db.collection("users").document(userUID)
+            let itemsCollectionRef = userRef.collection("items")
+            
+            itemsCollectionRef.addDocument(data: data) { error in
+                if let error = error {
+                    print("Error adding task to Firestore: \(error.localizedDescription)")
+                } else {
+                    print("Task added successfully to Firestore.")
+                }
+            }
+        }
+    
+    func startListeningForUserItems() {
+           guard let userUID = Auth.auth().currentUser?.uid else {
+               print("User not authenticated.")
+               return
+           }
 
-}
+           let itemsCollectionRef = Firestore.firestore().collection("users").document(userUID).collection("items")
+
+           userItemsListener = itemsCollectionRef.addSnapshotListener { [weak self] snapshot, error in
+               guard let self = self else { return }
+
+               if let error = error {
+                   print("Error listening for user items: \(error.localizedDescription)")
+                   return
+               }
+
+               var tasks: [Task] = []
+               for document in snapshot?.documents ?? [] {
+                   if let taskDict = document.data() as? [String: Any],
+                      let task = Task.fromDictionary(taskDict) {
+                       tasks.append(task)
+                   }
+               }
+
+               DispatchQueue.main.async {
+                   self.storedTasks = tasks
+               }
+           }
+       }
+
+       func stopListeningForUserItems() {
+           userItemsListener?.remove()
+       }
+   }
+
+
 
 extension Task {
     static func fromDictionary(_ dictionary: [String: Any]) -> Task? {

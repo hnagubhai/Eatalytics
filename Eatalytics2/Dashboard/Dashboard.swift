@@ -9,9 +9,9 @@ import SwiftUI
 import Firebase
 
 struct Dashboard: View {
-    @StateObject var taskModel: TaskViewModel = TaskViewModel()
     @Namespace var animation
     @State private var isSheetPresented = false
+    @ObservedObject var taskModel: TaskViewModel = TaskViewModel()
 
     var body: some View {
         NavigationView {
@@ -27,8 +27,6 @@ struct Dashboard: View {
                                             .fontWeight(.semibold)
                                         Text(taskModel.extractDate(date: day, format: "dd"))
                                             .font(.system(size: 14))
-                                            
-                                        
                                     }
                                     .foregroundStyle(taskModel.isToday(date: day) ? .primary : .secondary)
                                     .foregroundColor(taskModel.isToday(date: day) ? .white : .black)
@@ -95,7 +93,14 @@ struct Dashboard: View {
             .background(Color("Light").edgesIgnoringSafeArea(.all))
             .sheet(isPresented: $isSheetPresented) {
                 SheetView()
+                    .environmentObject(taskModel)
             }
+        }
+        .onAppear {
+            taskModel.startListeningForUserItems()
+        }
+        .onDisappear {
+            taskModel.stopListeningForUserItems()
         }
     }
 
@@ -171,22 +176,67 @@ struct Dashboard: View {
 
     struct SheetView: View {
         @Environment(\.dismiss) var dismiss
+        @EnvironmentObject var taskModel: TaskViewModel
+        @State private var taskTitle = ""
+        @State private var taskDescription = ""
 
         var body: some View {
             VStack {
-                Text("Sheet View")
+                Text("Add Task")
                     .font(.largeTitle)
+
+                TextField("Food", text: $taskTitle)
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(8)
+                    .font(.body)
+                    .foregroundColor(Color("Dark"))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color("LightGray"), lineWidth: 1)
+                    )
+                    .padding(.horizontal)
+
+                TextField("Calories", text: $taskDescription)
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(8)
+                    .font(.body)
+                    .foregroundColor(Color("Dark"))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color("LightGray"), lineWidth: 1)
+                    )
+                    .padding(.horizontal)
+
+                Button(action: {
+                    addTask()
+                }) {
+                    Text("Add")
+                        .padding()
+                        .background(Color("LightGreen"))
+                        .foregroundColor(Color("Dark"))
+                        .cornerRadius(10)
+                }
+                .padding()
 
                 Button(action: {
                     dismiss()
                 }) {
-                    Text("Dismiss")
+                    Text("Cancel")
                         .padding()
                         .background(Color.red)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
             }
+            .padding()
+        }
+
+        private func addTask() {
+            let newTask = Task(taskTitle: taskTitle, taskDescription: taskDescription, taskDate: Date())
+            taskModel.addTaskToFirestore(task: newTask)
+            dismiss()
         }
     }
 
