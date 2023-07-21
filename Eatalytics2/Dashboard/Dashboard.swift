@@ -22,18 +22,17 @@ struct Dashboard: View {
                             HStack(spacing: 10) {
                                 ForEach(taskModel.currentWeek, id: \.self) { day in
                                     VStack(spacing: 10) {
-                                        Text(taskModel.extractDate(date: day, format: "dd"))
+                                        Text(taskModel.extractDate(date: day, format: "EEE"))
                                             .font(.system(size: 15))
                                             .fontWeight(.semibold)
-                                        Text(taskModel.extractDate(date: day, format: "EEE"))
+                                        Text(taskModel.extractDate(date: day, format: "dd"))
                                             .font(.system(size: 14))
-                                        Circle()
-                                            .fill(taskModel.isToday(date: day) ? Color.white : Color.clear)
-                                            .frame(width: 8, height: 8)
+                                            
+                                        
                                     }
                                     .foregroundStyle(taskModel.isToday(date: day) ? .primary : .secondary)
                                     .foregroundColor(taskModel.isToday(date: day) ? .white : .black)
-                                    .frame(width: 45, height: 90)
+                                    .frame(width: 45, height: 80)
                                     .background(
                                         ZStack {
                                             if taskModel.isToday(date: day) {
@@ -63,8 +62,20 @@ struct Dashboard: View {
                                         .offset(y: 100)
                                         .foregroundColor(Color("Dark"))
                                 } else {
-                                    ForEach(tasks) { task in
-                                        TaskCardView(task: task)
+                                    VStack {
+                                        HStack{
+                                            Text("LOG")
+                                                .font(.headline)
+                                                .foregroundColor(Color("Dark"))
+                                            Spacer()
+                                        }
+                                        Divider()
+                                            .background(Color.gray)
+                                            .padding(.vertical, 5)
+
+                                        ForEach(tasks) { task in
+                                            TaskCardView(task: task)
+                                        }
                                     }
                                 }
                             } else {
@@ -111,26 +122,14 @@ struct Dashboard: View {
                         .foregroundColor(Color("Dark"))
                 }
             }
-            .padding()
-            .padding(.top, getSafeArea().top)
+            .padding(.horizontal)
+            .padding(.top, getSafeArea().top+10)
             .background(Color("Light"))
         }
     }
 
     func TaskCardView(task: Task) -> some View {
         VStack(spacing: 10) {
-            HStack{
-                
-                Text("LOG")
-                    .font(.headline)
-                    .foregroundColor(Color("Dark"))
-                Spacer()
-            }
-           
-            Divider()
-                .background(Color.gray)
-                .padding(.vertical, 5)
-
             HStack(alignment: .top, spacing: 30) {
                 VStack(spacing: 10) {
                     Circle()
@@ -166,10 +165,9 @@ struct Dashboard: View {
                 .foregroundColor(Color("Dark"))
             }
 
-            
         }
+        .padding(.vertical, 10)
     }
-
 
     struct SheetView: View {
         @Environment(\.dismiss) var dismiss
@@ -192,14 +190,11 @@ struct Dashboard: View {
         }
     }
 
-    
-struct Dashboard_Previews: PreviewProvider {
-    static var previews: some View {
-        Dashboard()
+    struct Dashboard_Previews: PreviewProvider {
+        static var previews: some View {
+            Dashboard()
+        }
     }
-}
-    
- 
 }
 
 func getSafeArea() -> UIEdgeInsets {
@@ -216,7 +211,7 @@ func getSafeArea() -> UIEdgeInsets {
 
 func getGreeting() -> String {
     let hour = Calendar.current.component(.hour, from: Date())
-    
+
     if (hour >= 0 && hour < 12) {
         return "Good Morning!"
     } else if (hour >= 12 && hour < 17) {
@@ -225,6 +220,7 @@ func getGreeting() -> String {
         return "Good Evening!"
     }
 }
+
 
 
 
