@@ -99,7 +99,7 @@ class TaskViewModel: ObservableObject {
     }
 
     // MARK: Load Tasks from Firestore
-    func loadTasksFromFirestore(completion: @escaping ([Task]) -> Void) {
+    func loadTasksFromFirestore() {
         guard let userUID = Auth.auth().currentUser?.uid else {
             print("User not authenticated.")
             return
