@@ -12,6 +12,7 @@ struct Dashboard: View {
     @Namespace var animation
     @State private var isSheetPresented = false
     @ObservedObject var taskModel: TaskViewModel = TaskViewModel()
+    @State private var isContextMenuPresented = false
 
     var body: some View {
         NavigationView {
@@ -169,10 +170,36 @@ struct Dashboard: View {
                 }
                 .foregroundColor(Color("Dark"))
             }
+            .padding(.vertical, 10)
+            .contentShape(Rectangle())
 
+         
+            .overlay(
+                Rectangle()
+                    .fill(Color.clear)
+                    .contentShape(Circle())
+                    //.cornerRadius(10)
+                    .onTapGesture {
+                        
+                        isContextMenuPresented = true
+                    }
+            )
+            .contextMenu(menuItems: {
+                Button(action: {
+                   
+                }) {
+                    Label("Edit", systemImage: "square.and.pencil")
+                }
+                Button(action: {
+                    
+                }) {
+                    Label("Remove", systemImage: "trash")
+                }
+            })
         }
-        .padding(.vertical, 10)
     }
+
+
 
     struct SheetView: View {
         @Environment(\.dismiss) var dismiss
