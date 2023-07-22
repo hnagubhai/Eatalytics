@@ -182,7 +182,7 @@ struct Dashboard: View {
 
         var body: some View {
             VStack {
-                Text("Add Task")
+                Text("Add Item")
                     .font(.largeTitle)
 
                 TextField("Food", text: $taskTitle)
