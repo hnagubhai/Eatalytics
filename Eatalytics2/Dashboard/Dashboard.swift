@@ -12,7 +12,6 @@ struct Dashboard: View {
     @Namespace var animation
     @State private var isSheetPresented = false
     @ObservedObject var taskModel: TaskViewModel = TaskViewModel()
-    @State private var isContextMenuPresented = false
 
     var body: some View {
         NavigationView {
@@ -138,18 +137,10 @@ struct Dashboard: View {
         VStack(spacing: 10) {
             HStack(alignment: .top, spacing: 30) {
                 VStack(spacing: 10) {
-                    Circle()
-                        .fill(Color.clear)
-                        .frame(width: 15, height: 15)
-                        .background(
-                            Circle()
-                                .stroke(Color.black, lineWidth: 1)
-                                .padding(-3)
-                        )
-                        .scaleEffect(0.8)
+                    
 
-                    Rectangle()
-                        .fill(Color.black)
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color("Dark"))
                         .frame(width: 3)
                 }
 
@@ -171,19 +162,9 @@ struct Dashboard: View {
                 .foregroundColor(Color("Dark"))
             }
             .padding(.vertical, 10)
+            .padding(.horizontal, 5)
             .contentShape(Rectangle())
 
-         
-            .overlay(
-                Rectangle()
-                    .fill(Color.clear)
-                    .contentShape(Circle())
-                    //.cornerRadius(10)
-                    .onTapGesture {
-                        
-                        isContextMenuPresented = true
-                    }
-            )
             .contextMenu(menuItems: {
                 Button(action: {
                    
@@ -198,7 +179,6 @@ struct Dashboard: View {
             })
         }
     }
-
 
 
     struct SheetView: View {
