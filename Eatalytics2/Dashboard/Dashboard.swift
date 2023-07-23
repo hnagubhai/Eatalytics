@@ -12,7 +12,7 @@ struct Dashboard: View {
     @Namespace var animation
     @State private var isSheetPresented = false
     @ObservedObject var taskModel: TaskViewModel = TaskViewModel()
-
+    
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
@@ -50,7 +50,7 @@ struct Dashboard: View {
                             }
                             .padding(.horizontal)
                         }
-
+                        
                         LazyVStack(spacing: 20) {
                             if let tasks = taskModel.filteredTasks {
                                 if tasks.isEmpty {
@@ -70,7 +70,7 @@ struct Dashboard: View {
                                         Divider()
                                             .background(Color.gray)
                                             .padding(.vertical, 5)
-
+                                        
                                         ForEach(tasks) { task in
                                             TaskCardView(task: task)
                                         }
@@ -103,10 +103,10 @@ struct Dashboard: View {
             taskModel.stopListeningForUserItems()
         }
     }
-
+    
     struct HeaderView: View {
         @Binding var isSheetPresented: Bool
-
+        
         var body: some View {
             HStack(spacing: 10) {
                 VStack(alignment: .leading, spacing: 10) {
@@ -132,30 +132,30 @@ struct Dashboard: View {
             .background(Color("Light"))
         }
     }
-
+    
     func TaskCardView(task: Task) -> some View {
         VStack(spacing: 10) {
             HStack(alignment: .top, spacing: 30) {
                 VStack(spacing: 10) {
                     
-
+                    
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color("Dark"))
                         .frame(width: 3)
                 }
-
+                
                 VStack(alignment: .leading) {
                     HStack(alignment: .top, spacing: 10) {
                         VStack(alignment: .leading, spacing: 12) {
                             Text(task.taskTitle)
                                 .font(.title2.bold())
-
+                            
                             Text(task.taskDescription)
                                 .font(.callout)
                                 .foregroundStyle(.secondary)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
-
+                        
                         Text(task.taskDate.formatted(date: .omitted, time: .shortened))
                     }
                 }
@@ -164,34 +164,35 @@ struct Dashboard: View {
             .padding(.vertical, 10)
             .padding(.horizontal, 5)
             .contentShape(Rectangle())
-
+            
             .contextMenu(menuItems: {
                 Button(action: {
-                   
+                    
                 }) {
                     Label("Edit", systemImage: "square.and.pencil")
                 }
                 Button(action: {
-                    
+                    print("Task card id: \(task.id)")
+                    taskModel.deleteTaskFromFirestore(task: task)
                 }) {
                     Label("Remove", systemImage: "trash")
                 }
             })
         }
     }
-
-
+    
+    
     struct SheetView: View {
         @Environment(\.dismiss) var dismiss
         @EnvironmentObject var taskModel: TaskViewModel
         @State private var taskTitle = ""
         @State private var taskDescription = ""
-
+        
         var body: some View {
             VStack {
                 Text("Add Item")
                     .font(.largeTitle)
-
+                
                 TextField("Food", text: $taskTitle)
                     .padding()
                     .background(Color.white)
@@ -203,7 +204,7 @@ struct Dashboard: View {
                             .stroke(Color("LightGray"), lineWidth: 1)
                     )
                     .padding(.horizontal)
-
+                
                 TextField("Calories", text: $taskDescription)
                     .padding()
                     .background(Color.white)
@@ -215,7 +216,7 @@ struct Dashboard: View {
                             .stroke(Color("LightGray"), lineWidth: 1)
                     )
                     .padding(.horizontal)
-
+                
                 Button(action: {
                     addTask()
                 }) {
@@ -226,7 +227,7 @@ struct Dashboard: View {
                         .cornerRadius(10)
                 }
                 .padding()
-
+                
                 Button(action: {
                     dismiss()
                 }) {
@@ -239,17 +240,17 @@ struct Dashboard: View {
             }
             .padding()
         }
-
+        
         private func addTask() {
-            let newTask = Task(taskTitle: taskTitle, taskDescription: taskDescription, taskDate: Date())
+            let newTask = Task(id: UUID().uuidString, taskTitle: taskTitle, taskDescription: taskDescription, taskDate: Date())
             taskModel.addTaskToFirestore(task: newTask)
             dismiss()
         }
-    }
-
-    struct Dashboard_Previews: PreviewProvider {
-        static var previews: some View {
-            Dashboard()
+        
+        struct Dashboard_Previews: PreviewProvider {
+            static var previews: some View {
+                Dashboard()
+            }
         }
     }
 }
@@ -258,17 +259,17 @@ func getSafeArea() -> UIEdgeInsets {
     guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
         return .zero
     }
-
+    
     guard let safeArea = screen.windows.first?.safeAreaInsets else {
         return .zero
     }
-
+    
     return safeArea
 }
 
 func getGreeting() -> String {
     let hour = Calendar.current.component(.hour, from: Date())
-
+    
     if (hour >= 0 && hour < 12) {
         return "Good Morning!"
     } else if (hour >= 12 && hour < 17) {
@@ -277,7 +278,5 @@ func getGreeting() -> String {
         return "Good Evening!"
     }
 }
-
-
 
 
