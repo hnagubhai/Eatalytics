@@ -2,7 +2,7 @@
 //  Signup.swift
 //  Eatalytics
 //
-//  Created by Hemanth Nagubhai on 6/15/23.
+//  
 //
 
 import SwiftUI
